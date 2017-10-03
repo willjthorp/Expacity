@@ -1,14 +1,36 @@
 <nav>
-  <div class="container">
 
-  <div class="logo">
-    <img src="/assets/images/cityscape.png">
-    <h1>CityHub</h1>
+  <div class="top-nav">
+    <div class="container">
+
+    <div class="logo">
+      <img src="/assets/images/cityscape.png">
+      <h1>CityHub</h1>
+    </div>
+
+    <div class="nav-search-bar-container">
+      <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+    </div>
+
+    </div>
   </div>
 
-  <div class="nav-search-bar-container">
-    <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+  <div class="bottom-nav">
+    <div class="container">
+
+    <div class="bottom-nav-item">
+      <p>View City Stats</p>
+    </div>
+
+    <div class="bottom-nav-item">
+      <p>Compare Cities</p>
+    </div>
+
+    <div class="bottom-nav-item">
+      <p>Forum</p>
+    </div>
+
+    </div>
   </div>
 
-  </div>
 </nav>

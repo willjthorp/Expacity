@@ -29,6 +29,18 @@ h1 {
   display: inline-block;
 }
 
+h2, h3 {
+  font-family: 'Raleway', cursive;
+  font-size: 2rem;
+  display: block;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+
 .logo {
   letter-spacing: 3px;
   color: #2d2d2d;
@@ -40,7 +52,7 @@ h1 {
   margin: 0;
 }
 
-.custom-autocomplete__dropdown[_ngcontent-c2]   .main-text[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .currentlocation[_ngcontent-c2]   a[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .heading[_ngcontent-c2], .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
+.custom-autocomplete__dropdown[_ngcontent-c2]   .main-text[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .currentlocation[_ngcontent-c2]   a[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .heading[_ngcontent-c2], .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .secondary_text[_ngcontent-c2] {
   font-family: 'Nunito', sans-serif;
 }
 
@@ -48,7 +60,7 @@ h1 {
 /*Layout -------------------------------------------------------------------------------------------------------*/
 
 .container {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -59,13 +71,13 @@ h1 {
 .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
   /*height: 80px !important;*/
   border-radius: 5px;
-  padding-left: 20px !important; 
+  padding-left: 20px !important;
 }
 
 
 /*Images -------------------------------------------------------------------------------------------------------*/
 
-img {
+nav img {
   display: inline-block;
   max-width: 45px;
   position: relative;

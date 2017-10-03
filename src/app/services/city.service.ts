@@ -13,15 +13,14 @@ export class CityService {
       .map((res) => res.json())
   }
 
-  // getEntry(id: string) {
-  //   return this.http.get(`http://localhost:3000/api/journal-entries/${id}`)
-  //     .map((res) => res.json());
-  // }
-  //
-  // postEntry(title: string, content: string) {
-  //   return this.http.post(`http://localhost:3000/api/journal-entries`, {title: title, content: content, date: new Date()})
-  //     .map((res) => res.json())
-  //     .subscribe()
-  // }
+  getPhotoReference(city: string) {
+    return this.http.get(`http://localhost:3000/cityapi/photoreference/${city}`)
+      .map((res) => res.json())
+  }
+
+  getPhoto(photo: string) {
+    return this.http.get(`http://localhost:3000/cityapi/photo/${photo}`)
+      .map((res) => res.json())
+  }
 
 }
