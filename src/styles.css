@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/*Elements -------------------------------------------------------------------------------------------------------*/
+
+iframe {
+  display: block;
+  margin: 20px auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+/*Typography -------------------------------------------------------------------------------------------------------*/
+
+h1, h2, h3, p {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 3rem;
+  display: inline-block;
+}
+
+.logo {
+  letter-spacing: 3px;
+  color: #2d2d2d;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+.custom-autocomplete__dropdown[_ngcontent-c2]   .main-text[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .currentlocation[_ngcontent-c2]   a[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .heading[_ngcontent-c2], .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
+  font-family: 'Nunito', sans-serif;
+}
+
+
+/*Layout -------------------------------------------------------------------------------------------------------*/
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.custom-autocomplete__dropdown[_ngcontent-c2] {
+  overflow: hidden;
+}
+
+.custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
+  /*height: 80px !important;*/
+  border-radius: 5px;
+  padding-left: 20px !important; 
+}
+
+
+/*Images -------------------------------------------------------------------------------------------------------*/
+
+img {
+  display: inline-block;
+  max-width: 45px;
+  position: relative;
+  top: 3px;
+}

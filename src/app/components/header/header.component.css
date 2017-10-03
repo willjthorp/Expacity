@@ -1,0 +1,25 @@
+nav {
+  background-color: #fffbf2;
+  padding: 5px 0;
+}
+
+.nav-menu {
+  position: relative;
+  right: 5px;
+  top: 20px
+}
+
+.nav-menu li {
+  display: inline-block;
+}
+
+.nav-search-bar-container {
+  width: 50%;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+}
+
+.custom-autocomplete__dropdown[_ngcontent-c1] .currentlocation[_ngcontent-c1] a[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .heading[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .main-text[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .secondary_text[_ngcontent-c1], .button-included[_ngcontent-c1] input[_ngcontent-c1], .custom-autocomplete__input[_ngcontent-c1]   input[_ngcontent-c1] {
+  font-family: 'Nunito', sans-serif;
+}
