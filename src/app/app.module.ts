@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
@@ -18,11 +19,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { CityService } from './services/city.service'
 
 import { RouterModule, Routes } from '@angular/router';
+import { ToptensComponent } from './pages/toptens/toptens.component';
+import { PagesToptensComponent } from './pages/pages-toptens/pages-toptens.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',  component: PagesHomeComponent },
   { path: 'cities/:id',  component: PagesCityinfoComponent },
+  { path: 'toptens',  component: PagesToptensComponent },
 ];
 
 @NgModule({
@@ -37,9 +41,12 @@ const routes: Routes = [
     PlaylistComponent,
     HeaderComponent,
     PagesCityinfoComponent,
+    ToptensComponent,
+    PagesToptensComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
     Ng4GeoautocompleteModule.forRoot(),
     ChartsModule,

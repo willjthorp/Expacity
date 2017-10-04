@@ -1,7 +1,6 @@
 
 <div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}">
   <div class="city-header">
-
     <h2>{{city}}</h2>
     <h3>{{country}}</h3>
   </div>
@@ -9,21 +8,35 @@
 
 <div class="container">
 
+  <!-- <h2>City information</h2>
+  <hr /> -->
+
   <div class="main-stats">
-    <h2>City information</h2>
-    <hr />
     <div class="stat-container">
-      <img src="/assets/images/house.png">
-      <h3>Average Rent Cost</h3>
+      <img src="/assets/images/joy.png">
+      <h3>Quality of life index</h3>
+      <hr />
+      <p><span class="data">{{qualityOfLifeIndex}}</span></p>
     </div>
     <div class="stat-container">
-      <img src="/assets/images/house.png">
-      <h3>Average Rent Cost</h3>
+      <img src="/assets/images/home.png">
+      <h3>Property price / income ratio</h3>
+      <hr />
+      <p><span class="data">{{propPriceIncomeRatio}}</span></p>
     </div>
     <div class="stat-container">
-      <img src="/assets/images/house.png">
-      <h3>Average Rent Cost</h3>
+      <img src="/assets/images/coins.png">
+      <h3>Cost of living index</h3>
+      <hr />
+      <p><span class="data">{{costOfLivingIndex}}</span></p>
     </div>
+  </div>
+
 </div>
 
+
+<div class="info-box">
+  <div class="container climate-info">
+    <h3>Climate info</h3>
+  </div>
 </div>

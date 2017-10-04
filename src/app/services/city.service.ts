@@ -23,4 +23,14 @@ export class CityService {
       .map((res) => res.json())
   }
 
+  getPrices(city: string) {
+    return this.http.get(`http://localhost:3000/cityapi/prices/${city}`)
+      .map((res) => res.json())
+  }
+
+  getClimate(city: string) {
+    return this.http.get(`http://localhost:3000/cityapi/city_climate/${city}`)
+      .map((res) => res.json())
+  }
+
 }

@@ -17,6 +17,12 @@ export class PagesCityinfoComponent implements OnInit {
   cityIndices: Object;
   photoReference: string;
   photoURL: string;
+  qualityOfLifeIndex: number;
+  costOfLivingIndex: number;
+  propPriceIncomeRatio: number
+  rentPrice: number;
+  currency: string;
+  climateInfo: Object;
 
   constructor(private cities: CityService, private route: ActivatedRoute) { }
 
@@ -25,6 +31,8 @@ export class PagesCityinfoComponent implements OnInit {
       this.city = params['id']
       this.getIndices()
       this.getPhotoReference()
+      this.getPrices()
+      this.getClimate()
     });
   }
 
@@ -32,9 +40,10 @@ export class PagesCityinfoComponent implements OnInit {
     this.cities.getIndices(this.city)
       .subscribe((indices) => {
         this.cityIndices = indices;
-        console.log('country:', this.country)
+        this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
+        this.costOfLivingIndex = indices.cpi_index.toFixed(2);
+        this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
         this.country = indices.name.split(',')[1].trim()
-        console.log('country:', this.country)
         return this.cityIndices
       });
   }
@@ -42,6 +51,7 @@ export class PagesCityinfoComponent implements OnInit {
   getPhotoReference() {
     this.cities.getPhotoReference(this.city)
     .subscribe((info) => {
+        console.log(info)
         this.photoReference = info.results[0].photos[0].photo_reference;
         console.log(this.photoReference)
         this.getPhoto()
@@ -57,5 +67,22 @@ export class PagesCityinfoComponent implements OnInit {
       });
   }
 
+  getPrices() {
+    this.cities.getPrices(this.city)
+      .subscribe((priceinfo) => {
+        this.rentPrice = priceinfo.prices.filter(function(obj) {
+              return obj.item_id === 26;
+            })[0].average_price.toFixed(0);
+        this.currency = priceinfo.currency;
+      });
+  }
+
+  getClimate() {
+    this.cities.getClimate(this.city)
+      .subscribe((climate) => {
+        this.climateInfo = climate;
+        console.log(this.climateInfo);
+      });
+  }
 
 }

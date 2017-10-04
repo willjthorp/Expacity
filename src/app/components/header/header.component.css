@@ -1,7 +1,131 @@
-nav {
+.nav-menu {
+  position: relative;
+  right: 5px;
+  top: 20px
 }
 
-.nav-menu {
+.bottom-nav {
+  max-height: 0;
+  opacity: 0;
+  transition: all 200ms ease
+}
+
+.bottom-nav.visible {
+  max-height: 200px;
+  opacity: 1;
+  transition: all 200ms ease
+}
+
+header img {
+  display: inline-block;
+  max-width: 34px;
+  position: relative;
+  top: 3px;
+}
+
+header h1 {
+  font-family: 'Nunito', cursive;
+  font-size: 2rem;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+.nav-menu li {
+  display: inline-block;
+}
+
+.burger-menu-icon {
+  float: right;
+  padding-right: 10px;
+}
+
+.nav-search-bar-container {
+  width: 100%;
+  display: block;
+  position: relative;
+  top: 7px;
+  z-index: 10
+}
+
+.custom-autocomplete__dropdown[_ngcontent-c1] .currentlocation[_ngcontent-c1] a[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .heading[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .main-text[_ngcontent-c1], .custom-autocomplete__dropdown[_ngcontent-c1] .secondary_text[_ngcontent-c1], .button-included[_ngcontent-c1] input[_ngcontent-c1], .custom-autocomplete__input[_ngcontent-c1]   input[_ngcontent-c1] {
+  font-family: 'Nunito', sans-serif;
+}
+
+.top-nav {
+  padding: 10px 0 0 0;
+  height: 100px;
+}
+
+.bottom-nav {
+  background: #f9f9f9;
+}
+
+.bottom-nav-item {
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  transition: background-color 200ms ease;
+}
+
+.bottom-nav-item:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+
+
+
+@media only screen and (min-width: 762px) {
+  .burger-menu-icon {
+    display: none !important;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  header img {
+    max-width: 40px;
+  }
+
+  .nav-search-bar-container {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    top: 6px;
+  }
+
+  .bottom-nav-item {
+    width: 24%;
+    display: inline-block;
+  }
+
+  .top-nav {
+    padding: 10px 0 15px 0;
+    height: 50px;
+  }
+
+  .bottom-nav {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.nav-menu {
   position: relative;
   right: 5px;
   top: 20px
@@ -23,7 +147,6 @@ nav {
 }
 
 .top-nav {
-  /*background-color: #fffbf2;*/
   padding: 10px 0;
 }
 
@@ -33,7 +156,7 @@ nav {
 }
 
 .bottom-nav-item {
-  width: 33%;
+  width: 24.6%;
   line-height: 40px;
   text-align: center;
   font-family: 'Nunito', sans-serif;
@@ -44,4 +167,4 @@ nav {
 .bottom-nav-item:hover {
   background-color: #ededed;
   cursor: pointer;
-}
+}*/

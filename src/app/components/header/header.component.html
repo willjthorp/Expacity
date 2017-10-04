@@ -1,12 +1,16 @@
-<nav>
+<header>
 
   <div class="top-nav">
     <div class="container">
 
-    <div class="logo">
-      <img src="/assets/images/cityscape.png">
-      <h1>CityHub</h1>
-    </div>
+      <a [routerLink]="['/home']">
+      <div class="logo">
+        <img src="/assets/images/cityscape.png">
+        <h1>EXPACITY</h1>
+      </div>
+    </a>
+
+    <img (click)="toggleMenu()" class="burger-menu-icon" src="/assets/images/menu-options.png">
 
     <div class="nav-search-bar-container">
       <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
@@ -15,22 +19,30 @@
     </div>
   </div>
 
-  <div class="bottom-nav">
+  <nav class="bottom-nav" [ngClass]="{'visible': toggle}">
     <div class="container">
+    <ul>
 
-    <div class="bottom-nav-item">
+    <li class="bottom-nav-item">
       <p>View City Stats</p>
-    </div>
+    </li>
 
-    <div class="bottom-nav-item">
+    <li class="bottom-nav-item">
       <p>Compare Cities</p>
-    </div>
+    </li>
 
-    <div class="bottom-nav-item">
+    <a [routerLink]="['/toptens']">
+      <li class="bottom-nav-item">
+        <p>Top 10s</p>
+      </li>
+    </a>
+
+    <li class="bottom-nav-item">
       <p>Forum</p>
-    </div>
+    </li>
 
+  </ul>
     </div>
-  </div>
+  </nav>
 
-</nav>
+</header>

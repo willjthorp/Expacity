@@ -3,30 +3,23 @@
 
 /*Elements -------------------------------------------------------------------------------------------------------*/
 
-iframe {
-  display: block;
-  margin: 20px auto;
-}
-
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 
 /*Typography -------------------------------------------------------------------------------------------------------*/
 
-h1, h2, h3, p {
+h1, h2, h3, h1, p {
   padding: 0;
   margin: 0;
-}
-
-h1 {
-  font-family: 'Righteous', cursive;
-  font-size: 3rem;
-  display: inline-block;
 }
 
 h2, h3 {
@@ -40,6 +33,14 @@ h3 {
   font-size: 1.5rem;
 }
 
+p {
+  font-family: 'Nunito', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; 
+}
 
 .logo {
   letter-spacing: 3px;
@@ -56,12 +57,16 @@ h3 {
   font-family: 'Nunito', sans-serif;
 }
 
+.custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
+  height: 42px !important
+}
+
 
 /*Layout -------------------------------------------------------------------------------------------------------*/
 
 .container {
-  width: 70%;
-  margin: 0 auto;
+  margin: 0 10px;
+  transition: width 200ms ease, margin 200ms ease;
 }
 
 .custom-autocomplete__dropdown[_ngcontent-c2] {
@@ -69,7 +74,6 @@ h3 {
 }
 
 .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
-  /*height: 80px !important;*/
   border-radius: 5px;
   padding-left: 20px !important;
 }
@@ -77,9 +81,32 @@ h3 {
 
 /*Images -------------------------------------------------------------------------------------------------------*/
 
-nav img {
-  display: inline-block;
-  max-width: 45px;
-  position: relative;
-  top: 3px;
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media query stuff -------------------------------------------------------------------------------------------------------*/
+
+
+@media only screen and (min-width: 762px) {
+  .container {
+    margin: 0 30px;
+    transition: width 200ms ease, margin 200ms ease;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .container {
+    width: 70%;
+    margin: 0 auto;
+    transition: width 200ms ease, margin 200ms ease;
+  }
 }

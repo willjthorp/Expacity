@@ -12,6 +12,11 @@ export class HeaderComponent implements OnInit {
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   currentCity: string;
+  toggle: boolean = false;
+
+  toggleMenu() {
+    this.toggle=!this.toggle;
+  }
 
   constructor(private router: Router) { }
 
