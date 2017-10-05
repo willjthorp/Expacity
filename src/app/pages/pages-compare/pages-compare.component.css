@@ -1,8 +1,10 @@
 .header-image {
   height: 200px;
-  background: #A1FFCE;
-  background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);
-  background: linear-gradient(to right, #FAFFD1, #A1FFCE);
+  background: #C9FFBF; /
+  background: -webkit-linear-gradient(to left, #FFAFBD, #C9FFBF);
+  background: linear-gradient(to left, #FFAFBD, #C9FFBF); 
+
+
 }
 
 .header-text {
@@ -21,8 +23,6 @@
 .top-ten-container {
   padding: 10px 0;
 }
-
-
 
 
 @media only screen and (min-width: 762px) {

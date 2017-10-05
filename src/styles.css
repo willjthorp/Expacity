@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 /*Elements -------------------------------------------------------------------------------------------------------*/
 
@@ -39,18 +39,7 @@ p {
 
 a {
   text-decoration: none;
-  color: inherit; 
-}
-
-.logo {
-  letter-spacing: 3px;
-  color: #2d2d2d;
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.logo h1 {
-  margin: 0;
+  color: inherit;
 }
 
 .custom-autocomplete__dropdown[_ngcontent-c2]   .main-text[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .currentlocation[_ngcontent-c2]   a[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .heading[_ngcontent-c2], .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2], .custom-autocomplete__dropdown[_ngcontent-c2]   .secondary_text[_ngcontent-c2] {
@@ -60,6 +49,12 @@ a {
 .custom-autocomplete__input[_ngcontent-c2]   input[_ngcontent-c2] {
   height: 42px !important
 }
+
+.ng2-dropdown-button[_ngcontent-c4] {
+  max-width: none !important;
+  text-align: center;
+}
+
 
 
 /*Layout -------------------------------------------------------------------------------------------------------*/

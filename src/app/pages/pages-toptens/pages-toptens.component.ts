@@ -12,4 +12,6 @@ export class PagesToptensComponent implements OnInit {
   ngOnInit() {
   }
 
+  categories =  ['Health Care', 'Crime', 'Traffic', 'Living Costs', 'Pollution', 'Traffic', 'Quality of Life', 'Groceries', 'Safety', 'Rent', 'Restaurant Price', 'Property Price / Income Ratio']
+
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScPlayerComponent } from './sc-player.component';
+import { PagesCompareComponent } from './pages-compare.component';
 
-describe('ScPlayerComponent', () => {
-  let component: ScPlayerComponent;
-  let fixture: ComponentFixture<ScPlayerComponent>;
+describe('PagesCompareComponent', () => {
+  let component: PagesCompareComponent;
+  let fixture: ComponentFixture<PagesCompareComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScPlayerComponent ]
+      declarations: [ PagesCompareComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScPlayerComponent);
+    fixture = TestBed.createComponent(PagesCompareComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

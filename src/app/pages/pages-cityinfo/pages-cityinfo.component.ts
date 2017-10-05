@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PagesCityinfoComponent implements OnInit {
 
   @Input() city:string;
+  
   country:string
 
   cityIndices: Object;
