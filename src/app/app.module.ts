@@ -26,8 +26,11 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { CityService } from './services/city.service';
 import { AuthService } from './services/auth.service';
+import { QuestionService } from './services/question.service';
 
 import { RouterModule, Routes } from '@angular/router';
+import { QuestionFormComponent } from './components/question-form/question-form.component';
+import { QuestionListComponent } from './components/question-list/question-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -56,7 +59,9 @@ const routes: Routes = [
     AuthLogoutComponent,
     AuthSignupComponent,
     AuthUserComponent,
-    ClimateGraphComponent
+    ClimateGraphComponent,
+    QuestionFormComponent,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [CityService, AuthService],
+  providers: [CityService, AuthService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

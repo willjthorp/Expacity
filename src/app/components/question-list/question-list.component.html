@@ -1,0 +1,12 @@
+<h2>Questions</h2>
+
+<hr />
+<button (click)="toggleQuestionForm()">Add new Question?</button>
+<app-question-form *ngIf="visibleForm" (onNewFood)="handleNewFood($event)"></app-question-form>
+
+<div class="question-container" *ngFor="let question of questionList">
+  <h3>{{question.content}}</h3>
+  <p>{{question.city}}</p>
+  <p>{{question.date}}</p>
+  <button (click)="handleAddAnswer()">Submit Answer</button>
+</div>
