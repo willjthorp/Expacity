@@ -9,7 +9,7 @@ import { QuestionService } from '../../services/question.service'
 })
 export class QuestionListComponent implements OnInit {
 
-  constructor(private entries: QuestionService) { }
+  constructor(private questionService: QuestionService) { }
 
   questionList: Object[]
   visibleForm: boolean = false;
@@ -20,11 +20,16 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit() {
     this.getQuestions()
+    console.log(this.questionList)
   }
 
   getQuestions() {
-    this.entries.getQuestions()
+    this.questionService.getQuestions()
       .subscribe((questions) => this.questionList = questions);
+  }
+
+  handleAddAnswer(content, questionId) {
+    this.questionService.postAnswer(content, questionId);
   }
 
 }

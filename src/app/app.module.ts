@@ -31,6 +31,7 @@ import { QuestionService } from './services/question.service';
 import { RouterModule, Routes } from '@angular/router';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
+import { QuestionCardComponent } from './components/question-card/question-card.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -61,7 +62,8 @@ const routes: Routes = [
     AuthUserComponent,
     ClimateGraphComponent,
     QuestionFormComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    QuestionCardComponent
   ],
   imports: [
     BrowserModule,

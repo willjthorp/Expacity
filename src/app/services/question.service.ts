@@ -13,14 +13,21 @@ export class QuestionService {
       .map((res) => res.json());
   }
 
-  getQuestion(id: string) {
-    return this.http.get(`http://localhost:3000/question/questions/${id}`)
-      .map((res) => res.json());
-  }
-
   postQuestion(content: string, city: string) {
     console.log('BOOO', content, city)
     return this.http.post(`http://localhost:3000/question/questions`, {content: content, city: city, date: new Date()})
+      .map((res) => res.json())
+      .subscribe()
+  }
+
+  getAnswers() {
+    return this.http.get('http://localhost:3000/question/questions')
+      .map((res) => res.json());
+  }
+
+  postAnswer(content: string, questionId: string) {
+    console.log('heeello')
+    return this.http.post(`http://localhost:3000/question/${questionId}/addanswer`, {content: content, date: new Date()})
       .map((res) => res.json())
       .subscribe()
   }

@@ -1,0 +1,14 @@
+<div class="question-container">
+  <p>City: {{question && question.city}}</p>
+  <hr />
+  <h3>{{question && question.content}}</h3>
+  <!-- <p>{{question.date}}</p> -->
+  <input type="text" [(ngModel)]="newAnswer.content" placeholder="Enter answer here...">
+  <button (click)="handleAddAnswer(newAnswer.content, question._id)">Submit Answer</button>
+  <button (click)="toggleAnswerList()">View Answers</button>
+  <div class="answer-container" *ngIf="visibleAnswers">
+    <div class="answers" *ngFor="let answer of question.answers">>
+      <!-- <p>{{answer.content}}</p> -->
+    </div>
+  </div>
+</div>

@@ -6,21 +6,21 @@
     <div class="header-container">
 
     <a [routerLink]="['/home']">
-      <div class="logo flex-item">
-        <img src="/assets/images/cityscape.png">
+      <div class="logo">
+        <img class="logo-img" src="/assets/images/cityscape.png">
         <h1>EXPACITY</h1>
       </div>
     </a>
 
+    <img (click)="toggleMenu()" class="burger-menu-icon" src="/assets/images/menu-options.png">
 
-      <div class="nav-search-bar-container flex-item">
+      <div class="nav-search-bar-container">
         <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
       </div>
 
-      <div class="flex-item auth-top-header">
+      <div class="auth-top-header">
         <p>Login / Signup</p>
       </div>
-      <img (click)="toggleMenu()" class="burger-menu-icon" src="/assets/images/menu-options.png">
 
     </div>
   </div>
@@ -29,25 +29,25 @@
     <div class="container">
     <ul>
 
-    <a [routerLink]="['/citysearch']">
+    <a [routerLink]="['/citysearch']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>View City Stats</p>
       </li>
     </a>
 
-    <a [routerLink]="['/compare']">
+    <a [routerLink]="['/compare']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>Compare Cities</p>
       </li>
     </a>
 
-    <a [routerLink]="['/toptens']">
+    <a [routerLink]="['/toptens']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>Top 10s</p>
       </li>
     </a>
 
-    <a [routerLink]="['/forum']">
+    <a [routerLink]="['/forum']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>Forum</p>
       </li>

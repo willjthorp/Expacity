@@ -1,11 +1,14 @@
 
-<div>
-  <label>Enter Question</label>
-  <input type="text" [(ngModel)]="newQuestion.content">
-</div>
-<div>
-  <label>Enter City</label>
-  <input type="text" [(ngModel)]="newQuestion.city">
-</div>
-
-<button (click)="handleSubmitClick(newQuestion.content, newQuestion.city)">Submit Question</button>
+<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+  <div>
+    <input type="text" name="content" [(ngModel)]="content" placeholder="Enter Question...">
+  </div>
+  <div class="city-input">
+    <ng4geo-autocomplete name="city" [(ngModel)]="city" [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+  </div>
+  <div>
+    <input class='hidden' type="text" [(ngModel)]="city" placeholder="Enter City...">
+  </div>
+  <button type="submit">Submit Question</button>
+  <!-- <button (click)="handleSubmitClick(newQuestion.content, newQuestion.city)">Submit Question</button> -->
+</form>

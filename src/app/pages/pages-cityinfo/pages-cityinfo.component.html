@@ -35,9 +35,28 @@
 </div>
 
 
-<div class="info-box">
-  <div class="container climate-info">
-    <h3>Climate info</h3>
-    <app-climate-graph [climateInfo]="climateInfo"></app-climate-graph>
+<div class="climate-info">
+  <div class="container">
+    <h2>Climate info</h2>
+    <ng-container *ngIf="climateInfo">
+      <app-climate-graph [climateInfo]="climateInfo"></app-climate-graph>
+    </ng-container>
+  </div>
+</div>
+
+<div class="price-info">
+  <div class="container">
+    <h2>Average Prices</h2>
+    <div class="price-item-container" *ngFor="let item of priceItems">
+      <img src={{item.photo}}>
+      <h3>{{item.name}}</h3>
+      <p>{{item.price}} {{currency}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="questions-box">
+  <div class="container">
+    <h2>Questions</h2>
   </div>
 </div>

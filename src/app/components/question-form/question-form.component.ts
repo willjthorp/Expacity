@@ -21,9 +21,18 @@ export class QuestionFormComponent implements OnInit {
     this.questionService.postQuestion(content, city)
   }
 
+  submitForm(myForm) {
+    console.log(myForm);
+  }
+
 
   ngOnInit() {
   }
 
+  public userSettings2: any = {
+    geoTypes: ['(cities)'],
+    inputPlaceholderText: 'Enter a city...',
+    showSearchButton: false,
+  };
 
 }

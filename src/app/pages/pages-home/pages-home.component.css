@@ -8,7 +8,9 @@
 }
 
 .splash-header {
-  background-color: rgba(4, 255, 0, 0.05);
+  background: #A1FFCE;  /
+  background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
+  background: linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
   height: 500px;
   text-align: center;
 }
@@ -23,6 +25,7 @@
 
 .splash-header h2 {
   font-size: 3rem;
+  font-weight: 300;
 }
 
 .splash-header h3 {

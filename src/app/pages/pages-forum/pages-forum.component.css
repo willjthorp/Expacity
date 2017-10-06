@@ -1,12 +1,12 @@
 .header-image {
-  height: 200px;
+  height: 100px;
   background: #d9a7c7;
   background: -webkit-linear-gradient(to left, #fffcdc, #d9a7c7);
   background: linear-gradient(to left, #fffcdc, #d9a7c7);
 }
 
 .header-text {
-  height: 200px;
+  height: 100px;
   text-align: center;
 }
 
@@ -14,7 +14,7 @@
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   color: white;
-  line-height: 180px;
+  line-height: 100px;
   font-size: 4rem;
 }
 
