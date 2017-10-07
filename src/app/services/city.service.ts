@@ -8,6 +8,11 @@ export class CityService {
 
   constructor(private http: Http) { }
 
+  getCities() {
+    return this.http.get(`http://localhost:3000/cityapi/cities`)
+      .map((res) => res.json())
+  }
+
   getIndices(city: string) {
     return this.http.get(`http://localhost:3000/cityapi/indices/${city}`)
       .map((res) => res.json())

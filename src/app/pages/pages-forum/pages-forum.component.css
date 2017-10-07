@@ -24,17 +24,25 @@
 
 
 @media only screen and (min-width: 762px) {
-  .splash-image {
-    height: 700px;
-    background-position: center;
-  }
-
   .header-text {
     height: 200px;
   }
 
   .header-text h2 {
     font-size: 5rem;
+  }
+
+  .header-image {
+    height: 200px;
+  }
+
+  .header-text {
+    height: 200px;
+  }
+
+  .header-image h2 {
+    line-height: 180px;
+
   }
 
 }

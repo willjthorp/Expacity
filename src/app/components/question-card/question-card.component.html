@@ -1,14 +1,27 @@
 <div class="question-container">
+
+  <!-- Question info -->
   <p>City: {{question && question.city}}</p>
+  <p>Posted on: {{question && question.date | date:'short'}}</p>
   <hr />
   <h3>{{question && question.content}}</h3>
-  <!-- <p>{{question.date}}</p> -->
-  <input type="text" [(ngModel)]="newAnswer.content" placeholder="Enter answer here...">
-  <button (click)="handleAddAnswer(newAnswer.content, question._id)">Submit Answer</button>
-  <button (click)="toggleAnswerList()">View Answers</button>
-  <div class="answer-container" *ngIf="visibleAnswers">
-    <div class="answers" *ngFor="let answer of question.answers">>
-      <!-- <p>{{answer.content}}</p> -->
+
+  <!-- Add answer -->
+  <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm" novalidate>
+    <div class="input-wrapper">
+      <input type="text" name="answer" #myContent="ngModel" [(ngModel)]="answer" placeholder="Enter answer here..." minlength="6" />
+    </div>
+    <button type="submit">Submit Answer</button>
+  </form>
+
+
+  <!-- View answers -->
+  <button (click)="toggleAnswerList()">View Answers ({{question.answers.length}})</button>
+  <div class="answer-container" [ngClass]="{'visible': visibleAnswers}">
+    <div class="answers" *ngFor="let answer of question.answers">
+      <p>{{answer.content}}</p>
+      <hr />
     </div>
   </div>
+
 </div>

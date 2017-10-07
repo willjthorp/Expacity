@@ -11,18 +11,28 @@ export class QuestionFormComponent implements OnInit {
 
   constructor(private questionService: QuestionService) { }
 
+  visibleForm: boolean = false;
+
+  toggleQuestionForm() {
+    this.visibleForm=!this.visibleForm;
+  }
+
   newQuestion = {
     content: '',
     city: '',
     date: new Date()
   };
 
-  handleSubmitClick(content: string, city: string){
-    this.questionService.postQuestion(content, city)
-  }
-
   submitForm(myForm) {
     console.log(myForm);
+    this.questionService.postQuestion(myForm.value.content, myForm.value.city)
+    this.visibleForm = false;
+  }
+
+  autoCompleteCallback1(selectedData:any) {
+    this.newQuestion.city = selectedData.name
+    console.log(this.newQuestion)
+    // this.notify.emit(this.newQuestion.city);
   }
 
 
@@ -31,7 +41,7 @@ export class QuestionFormComponent implements OnInit {
 
   public userSettings2: any = {
     geoTypes: ['(cities)'],
-    inputPlaceholderText: 'Enter a city...',
+    inputPlaceholderText: 'Select a city...',
     showSearchButton: false,
   };
 

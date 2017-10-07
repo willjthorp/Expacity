@@ -29,8 +29,8 @@
 
 .city-header {
   background: #A1FFCE;  /
-  background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.8));
-  background: linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.8));
+  background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.5), rgba(161, 255, 206, 0.7));
+  background: linear-gradient(to right, rgba(250, 255, 209, 0.5), rgba(161, 255, 206, 0.7));
 
   height: 300px;
   text-align: center;

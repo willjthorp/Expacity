@@ -42,3 +42,50 @@
   width: 100%;
   cursor: pointer;
 }
+
+.answer-container {
+  max-height: 0;
+  opacity: 0;
+  z-index: -10;
+  transition: all 200ms ease;
+  overflow: hidden;
+}
+
+.answer-container.visible {
+  max-height: 200px;
+  opacity: 1;
+  z-index: 10;
+  transition: all 300ms ease;
+  overflow: visible;
+}
+
+.answers {
+  padding: 10px 0;
+}
+
+@media only screen and (min-width: 762px) {
+  .question-container {
+    padding: 10px 30px;
+  }
+
+  .question-container button {
+    width: 300px;
+    margin: 10px auto;
+  }
+
+  .question-container input {
+    width: 300px;
+  }
+
+  .input-wrapper {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .question-container {
+    /*width: 50%;
+    margin: 0 auto;
+    transition: width 200ms ease, margin 200ms ease;*/
+  }
+}

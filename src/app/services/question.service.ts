@@ -26,7 +26,7 @@ export class QuestionService {
   }
 
   postAnswer(content: string, questionId: string) {
-    console.log('heeello')
+    console.log('WOOO', content, 'YAAa', questionId)
     return this.http.post(`http://localhost:3000/question/${questionId}/addanswer`, {content: content, date: new Date()})
       .map((res) => res.json())
       .subscribe()

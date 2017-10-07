@@ -1,19 +1,17 @@
-
-
   <div class="container">
-    <div class="form-wrapper">
-      <button (click)="toggleQuestionForm()" class="question-button">Ask new Question</button>
-      <app-question-form *ngIf="visibleForm" (onNewFood)="handleNewFood($event)"></app-question-form>
+    <div class="question-list-container">
+      <app-question-form></app-question-form>
+
+      <h2>Latest Questions</h2>
+
+      <hr />
+
+      <ul class="question-container">
+        <li *ngFor="let question of questionList">
+          <app-question-card [question]="question"></app-question-card>
+        </li>
+      </ul>
+      
     </div>
-
-    <h2>Latest Questions</h2>
-
-    <hr />
-
-    <ul class="question-container">
-      <li *ngFor="let question of questionList">
-        <app-question-card [question]="question"></app-question-card>
-      </li>
-    </ul>
 
   </div>

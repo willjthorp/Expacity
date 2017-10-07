@@ -1,13 +1,14 @@
+<button (click)="toggleQuestionForm()" class="question-button">Ask new Question</button>
 
-<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+<form class="question-form" [ngClass]="{'visible': visibleForm}" (ngSubmit)="submitForm(myForm)" #myForm="ngForm" novalidate>
   <div>
-    <input type="text" name="content" [(ngModel)]="content" placeholder="Enter Question...">
+    <input type="text" name="content" #myContent="ngModel" [(ngModel)]="content" placeholder="Enter question..." required>
   </div>
   <div class="city-input">
-    <ng4geo-autocomplete name="city" [(ngModel)]="city" [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+    <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
   </div>
   <div>
-    <input class='hidden' type="text" [(ngModel)]="city" placeholder="Enter City...">
+    <input class='hidden' type="text" name="city" [(ngModel)]="newQuestion.city" placeholder="Enter City..." required>
   </div>
   <button type="submit">Submit Question</button>
   <!-- <button (click)="handleSubmitClick(newQuestion.content, newQuestion.city)">Submit Question</button> -->

@@ -137,37 +137,13 @@ header h1 {
   .bottom-nav {
     max-height: 200px;
     opacity: 1;
+    pointer-events: auto;
   }
 
 
   .header-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-content: flex-start;
-      align-items: center;
       margin: 10px auto;
       height: 50px;
-      }
-
-  .flex-item:nth-child(1) {
-      order: 0;
-      flex: 0 1 auto;
-      align-self: auto;
-      }
-
-  .flex-item:nth-child(2) {
-      order: 0;
-      flex: 0 1 auto;
-      align-self: auto;
-      }
-
-  .flex-item:nth-child(3) {
-      order: 0;
-      flex: 0 1 auto;
-      align-self: auto;
-      line-height: 50px;
       }
 
 }

@@ -12,11 +12,6 @@ export class QuestionListComponent implements OnInit {
   constructor(private questionService: QuestionService) { }
 
   questionList: Object[]
-  visibleForm: boolean = false;
-
-  toggleQuestionForm() {
-    this.visibleForm = !this.visibleForm
-  }
 
   ngOnInit() {
     this.getQuestions()
