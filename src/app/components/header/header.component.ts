@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   autoCompleteCallback1(selectedData:any) {
     this.currentCity = selectedData.name
     this.notify.emit(this.currentCity);
-    this.router.navigate(['/cities', this.currentCity]);  // <!-- Programmatically navigate to home
+    this.router.navigate(['/cities', this.currentCity]); 
   }
 
   public userSettings2: any = {

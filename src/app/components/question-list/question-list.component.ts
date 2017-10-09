@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { QuestionService } from '../../services/question.service'
 
@@ -9,14 +9,16 @@ import { QuestionService } from '../../services/question.service'
 })
 export class QuestionListComponent implements OnInit {
 
+  @Input() questionList: Object[]
+
   constructor(private questionService: QuestionService) { }
 
-  questionList: Object[]
-
   ngOnInit() {
-    this.getQuestions()
-    console.log(this.questionList)
+    if (!this.questionList) {
+      this.getQuestions()
+    }
   }
+
 
   getQuestions() {
     this.questionService.getQuestions()

@@ -13,6 +13,11 @@ export class QuestionService {
       .map((res) => res.json());
   }
 
+  getCityQuestions(city: string) {
+    return this.http.get(`http://localhost:3000/question/cityquestions/${city}`)
+      .map((res) => res.json());
+  }
+
   postQuestion(content: string, city: string) {
     console.log('BOOO', content, city)
     return this.http.post(`http://localhost:3000/question/questions`, {content: content, city: city, date: new Date()})

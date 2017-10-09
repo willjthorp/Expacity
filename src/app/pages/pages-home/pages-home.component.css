@@ -15,29 +15,19 @@
   text-align: center;
 }
 
-.splash-header h2, .splash-header h3 {
+.splash-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   color: white;
   position: relative;
-  top: 70px;
-}
-
-.splash-header h2 {
   font-size: 3rem;
   font-weight: 300;
+  border: 2px solid white;
+  padding: 20px;
 }
-
-.splash-header h3 {
-  font-size: 1.5rem;
-  margin-top: 10px;
-}
-
-.splash-text-container {
-  width: 80%;
-  margin: 30px auto;
-}
-
 
 
 

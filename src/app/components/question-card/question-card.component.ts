@@ -24,7 +24,6 @@ export class QuestionCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.question)
   }
 
   submitForm(myForm) {

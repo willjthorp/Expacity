@@ -1,8 +1,4 @@
-.question-list-container {
-  text-align: center;
-  width: 70%;
-  margin: 0 auto;
-}
+
 
 hr {
   margin: 20px 0;
@@ -13,6 +9,12 @@ hr {
 }
 
 @media only screen and (min-width: 762px) {
+
+  .question-list-container {
+    text-align: center;
+    /*width: 70%;*/
+    margin: 0 auto;
+  }
 
 }
 

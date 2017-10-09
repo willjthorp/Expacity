@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CityService } from '../../services/city.service'
+
 @Component({
   selector: 'app-pages-compare',
   templateUrl: './pages-compare.component.html',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesCompareComponent implements OnInit {
 
-  constructor() { }
+  selectedCities: string[] = [];
+  bothSelected: boolean = false;
+  cityIndices: Object[] = [];
+
+  constructor(private cities: CityService) { }
 
   ngOnInit() {
   }

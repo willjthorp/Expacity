@@ -32,6 +32,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
+import { CompareGraphComponent } from './components/compare-graph/compare-graph.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -63,7 +64,8 @@ const routes: Routes = [
     ClimateGraphComponent,
     QuestionFormComponent,
     QuestionListComponent,
-    QuestionCardComponent
+    QuestionCardComponent,
+    CompareGraphComponent
   ],
   imports: [
     BrowserModule,

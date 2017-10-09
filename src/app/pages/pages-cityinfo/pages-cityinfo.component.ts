@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { CityService } from '../../services/city.service'
 
+import { QuestionService } from '../../services/question.service'
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,6 +16,8 @@ export class PagesCityinfoComponent implements OnInit {
   @Input() city: string;
 
   country: string
+
+  questionList: any;
 
   cityIndices: Object;
   photoReference: string;
@@ -125,15 +128,16 @@ export class PagesCityinfoComponent implements OnInit {
     },
   ]
 
-  constructor(private cities: CityService, private route: ActivatedRoute) { }
+  constructor(private cities: CityService, private route: ActivatedRoute, private questionService: QuestionService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.city = params['id']
-      this.getIndices()
-      this.getPhotoReference()
-      this.getPrices()
-      this.getClimate()
+      this.getIndices();
+      this.getPhotoReference();
+      this.getPrices();
+      this.getClimate();
+      this.getCityQuestions();
     });
   }
 
@@ -152,9 +156,7 @@ export class PagesCityinfoComponent implements OnInit {
   getPhotoReference() {
     this.cities.getPhotoReference(this.city)
       .subscribe((info) => {
-        console.log(info)
         this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
-        console.log(this.photoReference)
         this.getPhoto()
         // return this.photoReference
       });
@@ -163,7 +165,6 @@ export class PagesCityinfoComponent implements OnInit {
   getPhoto() {
     this.cities.getPhoto(this.photoReference)
       .subscribe((photo) => {
-        console.log(photo)
         this.photoURL = photo.location
       });
   }
@@ -187,7 +188,13 @@ export class PagesCityinfoComponent implements OnInit {
     this.cities.getClimate(this.city)
       .subscribe((climate) => {
         this.climateInfo = climate.months;
-        console.log(this.climateInfo);
+      });
+  }
+
+  getCityQuestions() {
+    this.questionService.getCityQuestions(this.city)
+      .subscribe((questions) => {
+        this.questionList = questions;
       });
   }
 
