@@ -1,5 +1,5 @@
 
-<div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}">
+<div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}" parallax [config]="{initialVal: -100, ratio: 0.5}">
   <div class="city-header">
     <h2>{{city}}</h2>
     <h3>{{country}}</h3>

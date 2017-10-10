@@ -1,3 +1,19 @@
-<app-header (notify)='onNotify($event)'></app-header>
+<div class="page-wrap">
 
-<router-outlet></router-outlet>
+  <app-header (notify)='onNotify($event)'></app-header>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">
+    <div class="img-container">
+      <img class="footer-img" src="/assets/images/cityscape.png">
+    </div>
+    <p>EXPACITY</p>
+  </div>
+  <hr>
+  <p>Designed and made by Will J Thorp</p>
+  <p>Copyright 2017</p>
+</footer>

@@ -1,8 +1,12 @@
+.container {
+  padding: 30px 0;
+}
+
 .header-image {
   height: 200px;
-  background: #C9FFBF;
-  background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
-  background: linear-gradient(to right, #FFAFBD, #C9FFBF);
+  background: #A1FFCE;
+  background: -webkit-linear-gradient(250deg, #FAFFD1, #A1FFCE);
+  background: linear-gradient(250deg, #FAFFD1, #A1FFCE);
 }
 
 .header-text {
@@ -11,30 +15,82 @@
 }
 
 .header-image h2 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 200;
   color: white;
-  line-height: 180px;
+  line-height: 200px;
   font-size: 4rem;
 }
 
-.top-ten-container {
-  padding: 10px 0;
+.search-bar-container {
+  margin-top: 30px;
 }
 
+.pop-cities-text {
+  padding-top: 40px;
+}
+
+.pop-cities-text h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pop-cities-text hr {
+  width: 40px;
+}
+
+.cities-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.city-item-container {
+  text-align: center;
+  width: 260px;
+  height: 200px;
+  margin: 20px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.city-item-container a, .city-item-container h3 {
+  line-height: 200px;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  width: 100%;
+  font-weight: 400;
+  border-radius: 20px;
+  transition: all 200ms ease;
+}
+
+.city-item-container a:hover, .city-item-container h3:hover {
+  background-color: rgba(0,0,0,0.3);
+  font-size: 1.6rem;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 762px) {
-  .splash-image {
-    height: 700px;
-    background-position: center;
-  }
-
   .header-text {
-    height: 200px;
+    height: 150px;
   }
 
   .header-text h2 {
     font-size: 5rem;
+  }
+
+  .header-image {
+    height: 150px;
+  }
+
+  .header-image h2 {
+    line-height: 150px;
   }
 
 }

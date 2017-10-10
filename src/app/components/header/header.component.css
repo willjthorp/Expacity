@@ -36,6 +36,7 @@ header h1 {
   display: inline-block;
   margin-left: 3px;
   margin-right: 10px;
+  font-weight: normal;
 }
 
 .nav-menu li {
@@ -110,12 +111,16 @@ header h1 {
 
 
 @media only screen and (min-width: 762px) {
+  .logo {
+    top: -4px;
+  }
+
   .burger-menu-icon {
     display: none !important;
   }
 
   header h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
 
   header img {
@@ -126,7 +131,7 @@ header h1 {
     width: 50%;
     display: inline-block;
     position: relative;
-    top: 6px;
+    top: 3px;
   }
 
   .bottom-nav-item {

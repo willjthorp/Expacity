@@ -1,0 +1,54 @@
+
+
+.search-bar-container {
+  margin-top: 10px;
+}
+
+.selected-cities-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.selected-cities-container hr {
+  width: 40px;
+}
+
+.city-image {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.city-image p {
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  font-size: 1.3rem;
+  overflow: hidden;
+}
+
+.chart {
+  margin-bottom: 30px;
+}
+
+.no-cities {
+  font-size: 1.5rem;
+  color: rgba(0,0,0,0.6)
+}
+
+@media only screen and (min-width: 762px) {
+  .search-bar-container {
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  .mat-select {
+    width: 50%;
+  }
+}

@@ -4,8 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CityService } from '../../services/city.service'
 
-import { GraphData } from '../../classes/graph-data'
-
 @Component({
   selector: 'app-compare-graph',
   templateUrl: './compare-graph.component.html',
@@ -18,48 +16,65 @@ export class CompareGraphComponent implements OnInit {
   maxLowTemp = [];
   cityLabel = {};
   showGraph = false;
+  photoReference: string;
   selectedCities = [];
   bothSelected: boolean = false;
   cityIndices = [];
+  tempData = [];
+  selectedCategory = '';
+  indexName = '';
 
-
+  // Callback from city selector
   autoCompleteCallback1(selectedData:any) {
-    this.selectedCities.push(selectedData.name);
-    this.getIndices(selectedData.name);
+    this.showGraph = false;
+    this.getPhotoReference(selectedData.name)
   }
 
   getIndices(selectedCity) {
     this.cities.getIndices(selectedCity)
       .subscribe((indices) => {
         this.cityIndices.push(indices);
-        this.setData();
-        // this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
-        // this.costOfLivingIndex = indices.cpi_index.toFixed(2);
-        // this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
-        // this.country = indices.name.split(',')[1].trim()
+        this.addCity();
       });
   }
 
-  public userSettings2: any = {
-    geoTypes: ['(cities)'],
-    inputPlaceholderText: 'Search for a city...',
-    showSearchButton: false,
-  };
+  selectCategory(name, indexName) {
+    this.indexName = indexName;
+    this.barChartLabels = [name + ''];
+    console.log(this.barChartLabels)
+    this.setData(indexName)
+  }
 
-  setData() {
+  addCity() {
     this.barChartData.push({data: []});
-    this.selectedCities.forEach((city, index) => {
-      this.barChartData[index].label = city
-      this.cityIndices.forEach((indices) => {
-        if (this.barChartData[index].data.length === 0 && indices.name.indexOf(city) !== -1) {
-          this.barChartData[index].data.push(indices.health_care_index);
-          this.barChartData[index].data.push(indices.crime_index);
-          this.barChartData[index].data.push(indices.traffic_time_index);
-        }
-      })
-    })
+    this.barChartData[this.barChartData.length - 1].label = this.selectedCities[this.selectedCities.length - 1].name
+    this.barChartData[this.barChartData.length - 1].backgroundColor = this.colors[this.selectedCities.length - 1];
+    this.setData(this.indexName)
     this.showGraph = true;
-    console.log('DATA', this.barChartData)
+  }
+
+  setData(indexName) {
+    this.barChartData.forEach((data, index) => {
+      this.barChartData[index].data = [this.cityIndices[index][this.indexName]];
+    });
+  }
+
+  getPhotoReference(city) {
+    this.cities.getPhotoReference(city)
+      .subscribe((info) => {
+        this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
+        this.getPhoto(city)
+        // return this.photoReference
+      });
+  }
+
+  getPhoto(city) {
+    this.cities.getPhoto(this.photoReference)
+      .subscribe((photo) => {
+        this.selectedCities.push({name: city, photoURL: photo.location});
+        this.getIndices(city);
+        console.log(this.selectedCities)
+      });
   }
 
   constructor(private route: ActivatedRoute, private cities: CityService) { }
@@ -68,11 +83,33 @@ export class CompareGraphComponent implements OnInit {
     console.log(this.selectedCities);
   }
 
+  // Search box settings -------------------------------------------------------------------------------------------
+
+
+    public userSettings2: any = {
+      geoTypes: ['(cities)'],
+      inputPlaceholderText: 'Search for a city to compare...',
+      showSearchButton: false,
+    };
+
+
+  // Graph settings -------------------------------------------------------------------------------------------
+
+
   public barChartOptions:any = {
     scaleShowVerticalLines: true,
     responsive: true,
+    scales : {
+       yAxes: [{
+          ticks: {
+             steps : 10,
+             stepValue : 10,
+             min: 0
+           }
+       }]
+     }
   };
-  public barChartLabels:string[] = ['Health Care', 'Crime', 'Traffic Time'];
+  public barChartLabels:string[] = [this.selectedCategory];
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 
@@ -86,5 +123,72 @@ export class CompareGraphComponent implements OnInit {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  private colors = [
+        'rgba(161, 255, 206, 0.7)',
+        'rgba(250, 255, 209, 0.7)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(0, 255, 0, 0.2)',
+        'rgba(102, 0, 204, 0.2)',
+        'rgba(255, 128, 0, 0.2)'
+  ];
+
+
+  categories = [
+    {
+      name: 'Health Care',
+      indexName: 'health_care_index'
+    },
+    {
+      name: 'Crime',
+      indexName: 'crime_index'
+    },
+    {
+      name: 'Traffic time',
+      indexName: 'cpi_index'
+    },
+    {
+      name: 'Cost of living',
+      indexName: 'cpi_index'
+    },
+    {
+      name: 'Pollution',
+      indexName: 'pollution_index'
+    },
+    {
+      name: 'Traffic',
+      indexName: 'traffic_index'
+    },
+    {
+      name:  'Quality of Life',
+      indexName: 'quality_of_life_index'
+    },
+    {
+      name: 'Grocery costs',
+      indexName: 'groceries_index'
+    },
+    {
+      name: 'Safety',
+      indexName: 'safety_index'
+    },
+    {
+      name: 'Rent price',
+      indexName: 'rent_index'
+    },
+    {
+      name: 'Restaurant price',
+      indexName: 'restaurant_price_index'
+    },
+    {
+      name: 'Property price / income',
+      indexName: 'property_price_to_income_ratio'
+    }
+  ];
+
+
+  //Dropdown box settings ----------------------------------------------------------------------------------------
+
+  items:Array<string> = ['Health Care', 'Crime', 'Traffic time', 'Cost of living', 'Pollution', 'Traffic', 'Quality of Life', 'Grocery costs', 'Safety', 'Rent price', 'Restaurant price', 'Property price / income']
+
 
 }

@@ -1,17 +1,39 @@
+<div class="container">
 
-<div class="nav-search-bar-container">
+<div class="search-bar-container">
   <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
 </div>
 
-<ng-container *ngIf="showGraph">
-  <div style="display: block">
+<md-select placeholder="Select a category to compare..." [(ngModel)]="selectedCategory">
+   <md-option *ngFor="let category of categories" [value]="category.name" (click)="selectCategory(category.name, category.indexName)">{{category.name}}</md-option>
+</md-select>
+
+<div class="selected-cities-container">
+  <h3>Selected Cities</h3>
+  <hr>
+  <div class="no-cities" *ngIf="selectedCities.length === 0">
+    <p>No cities currently selected!</p>
+  </div>
+  <div class="city-image" *ngFor="let city of selectedCities" [ngStyle]="{'background-image': 'url(' + city.photoURL + ')'}">
+    <div class="city-header">
+      <p>{{city.name}}</p>
+    </div>
+  </div>
+</div>
+
+
+<ng-container *ngIf="showGraph && selectedCities.length > 1 && selectedCategory">
+  <div class="chart" style="display: block">
     <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
+            [colors]="colors"
             [chartType]="barChartType"
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
   </div>
 </ng-container>
+
+</div>

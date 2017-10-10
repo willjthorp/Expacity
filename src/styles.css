@@ -75,19 +75,55 @@ a {
 }
 
 
-/*Images -------------------------------------------------------------------------------------------------------*/
+/*Dropdown -------------------------------------------------------------------------------------------------------*/
+
+.mat-select {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 42px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 5px;
+}
+
+.mat-select-trigger {
+  height: 42px !important;
+  line-height: 42px;
+}
+
+.mat-select-underline {
+  display: none !important;
+}
+
+.mat-select-placeholder.mat-floating-placeholder {
+  opacity: 0 !important;
+  z-index: -1000;
+}
 
 
+/*Sticky footer ----------------------------------------------------------------------------------------------------------*/
 
 
+html, body {
+  height: 100%;
+}
 
-
-
-
-
-
-
-
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px;
+}
+.site-footer {
+  background: #f9f9f9;
+}
 
 /*Media query stuff -------------------------------------------------------------------------------------------------------*/
 

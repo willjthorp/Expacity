@@ -1,8 +1,9 @@
 .header-image {
   height: 100px;
-  background: #d9a7c7;
-  background: -webkit-linear-gradient(to left, #fffcdc, #d9a7c7);
-  background: linear-gradient(to left, #fffcdc, #d9a7c7);
+  background: #A1FFCE;
+  background: -webkit-linear-gradient(to left, #FAFFD1, #A1FFCE);
+  background: linear-gradient(to left, #FAFFD1, #A1FFCE);
+
 }
 
 .header-text {
@@ -11,7 +12,7 @@
 }
 
 .header-image h2 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 200;
   color: white;
   line-height: 100px;
@@ -25,7 +26,7 @@
 
 @media only screen and (min-width: 762px) {
   .header-text {
-    height: 200px;
+    height: 150px;
   }
 
   .header-text h2 {
@@ -33,16 +34,11 @@
   }
 
   .header-image {
-    height: 200px;
-  }
-
-  .header-text {
-    height: 200px;
+    height: 150px;
   }
 
   .header-image h2 {
-    line-height: 180px;
-
+    line-height: 150px;
   }
 
 }

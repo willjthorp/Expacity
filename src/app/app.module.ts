@@ -6,6 +6,9 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
+import { SelectModule } from 'ng2-select';
+import { MdSelectModule } from '@angular/material';
+import { Parallax, ParallaxConfig } from 'ngx-parallax';
 
 import { AppComponent } from './app.component';
 import { PagesHomeComponent } from './pages/pages-home/pages-home.component';
@@ -32,7 +35,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
-import { CompareGraphComponent } from './components/compare-graph/compare-graph.component';
+import { CompareGraphComponent } from './components/compare-graph/compare-graph.component';;
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -65,7 +68,8 @@ const routes: Routes = [
     QuestionFormComponent,
     QuestionListComponent,
     QuestionCardComponent,
-    CompareGraphComponent
+    CompareGraphComponent,
+    Parallax,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ const routes: Routes = [
     ChartsModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    SelectModule,
+    MdSelectModule,
   ],
   providers: [CityService, AuthService, QuestionService],
   bootstrap: [AppComponent]

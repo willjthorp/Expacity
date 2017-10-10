@@ -33,8 +33,8 @@ export class ClimateGraphComponent implements OnInit {
       this.getClimateData('temp_high_avg', this.avHighTemp);
       this.getClimateData('temp_low_avg', this.avLowTemp);
       this.barChartData = [
-        {data: this.avHighTemp, label: 'Avg High Temp (°C)'},
-        {data: this.avLowTemp, label: 'Avg Low Temp (°C)'},
+        {data: this.avHighTemp, label: 'Avg High Temp (°C)', backgroundColor: 'rgba(161, 255, 206, 0.7)'},
+        {data: this.avLowTemp, label: 'Avg Low Temp (°C)', backgroundColor: 'rgba(250, 255, 209, 0.7)'},
       ];
     });
   }
@@ -57,6 +57,11 @@ export class ClimateGraphComponent implements OnInit {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  private colors = [
+        'rgba(161, 255, 206, 0.8)',
+        'rgba(250, 255, 209, 0.8)',
+  ];
 
 
 }

@@ -3,3 +3,22 @@
     <h2>View City Stats</h2>
   </div>
 </div>
+
+<div class="container">
+
+  <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+
+  <div class="pop-cities-text">
+    <h2>Popular Cities</h2>
+    <hr>
+  </div>
+
+  <div class="cities-container">
+    <div class="city-item-container" *ngFor="let city of cityItems" [ngStyle]="{'background-image': 'url(' + city.photo + ')'}" >
+      <!-- <img src={{city.photo}}> -->
+      <a [routerLink]="['/cities/' + city.name.trim()]"><h3>{{city.name}}</h3></a>
+    </div>
+  </div>
+
+
+</div>
