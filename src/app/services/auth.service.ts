@@ -28,6 +28,10 @@ export class AuthService {
     this.userChange.next(user);
   }
 
+  getUser(): User {
+    return this.user;
+  }
+
   signup(user: User) {
     let options = new RequestOptions();
     options.withCredentials = true;
@@ -81,4 +85,16 @@ export class AuthService {
       this.me().subscribe();
     }
   }
+
+  updateUser(user) {
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.put(apiUrl + '/me', user, options)
+    .map((res) => {
+      let user = new User(res.json());
+      this.setUser(user);
+      return user;
+    })
+  }
+
 }

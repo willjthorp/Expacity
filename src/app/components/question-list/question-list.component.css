@@ -1,5 +1,4 @@
 
-
 hr {
   margin: 20px 0;
 }
@@ -8,7 +7,20 @@ hr {
   padding: 20px 0;
 }
 
+.mat-select {
+  margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 762px) {
+
+  .question-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    transition: all 200ms ease
+  }
+
 
   .question-list-container {
     text-align: center;
@@ -16,6 +28,16 @@ hr {
     margin: 0 auto;
   }
 
+  .search-bar-container {
+    text-align: left;
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  .mat-select {
+    width: 50%;
+    text-align: left;
+  }
 }
 
 @media only screen and (min-width: 1224px) {

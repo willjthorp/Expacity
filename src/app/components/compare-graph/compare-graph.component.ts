@@ -90,6 +90,7 @@ export class CompareGraphComponent implements OnInit {
       geoTypes: ['(cities)'],
       inputPlaceholderText: 'Search for a city to compare...',
       showSearchButton: false,
+      showCurrentLocation: false,
     };
 
 

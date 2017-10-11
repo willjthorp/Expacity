@@ -3,6 +3,7 @@
   background: #f7f7f7;
   padding: 10px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .question-container h3 {
@@ -58,6 +59,7 @@
 
 .answer-container.visible {
   max-height: 200px;
+  overflow: hidden;
   opacity: 1;
   z-index: 10;
   transition: all 300ms ease;
@@ -68,11 +70,60 @@
   padding: 10px 0;
 }
 
+.star-container-question {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+.star-container-question:hover {
+  cursor: pointer;
+}
+
+.star-container-question p, .star-container-question i {
+  display: inline-block;
+  margin-left: 5px;
+  color: gold;
+  font-size: 1.4rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.answers {
+  position: relative;
+}
+
+.answer-text {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.star-container-answer {
+  position: absolute;
+  top: 9px;
+  right: 5px;
+}
+
+.star-container-answer:hover {
+  cursor: pointer;
+}
+
+.star-container-answer p, .star-container-answer i {
+  display: inline-block;
+  margin-left: 5px;
+  color: gold;
+  font-size: 1.2rem;
+}
+
+
+
 @media only screen and (min-width: 762px) {
   .question-container {
     padding: 10px 30px;
-    width: 600px;
-    margin: 20px auto;
+    width: 500px;
+    margin: 20px;
   }
 
   .question-container button {
@@ -86,13 +137,5 @@
 
   .input-wrapper {
     text-align: center;
-  }
-}
-
-@media only screen and (min-width: 1224px) {
-  .question-container {
-    /*width: 50%;
-    margin: 0 auto;
-    transition: width 200ms ease, margin 200ms ease;*/
   }
 }

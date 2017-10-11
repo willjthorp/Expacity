@@ -19,8 +19,19 @@ export class QuestionService {
   }
 
   postQuestion(content: string, city: string) {
-    console.log('BOOO', content, city)
     return this.http.post(`http://localhost:3000/question/questions`, {content: content, city: city, date: new Date()})
+      .map((res) => res.json())
+      .subscribe()
+  }
+
+  addQuestionStar(questionId: string) {
+    return this.http.get(`http://localhost:3000/question/${questionId}/addQuestionStar`)
+      .map((res) => res.json())
+      .subscribe()
+  }
+
+  addAnswerStar(questionId: string, answerId: string) {
+    return this.http.get(`http://localhost:3000/question/${questionId}/addAnswerStar/${answerId}`)
       .map((res) => res.json())
       .subscribe()
   }
@@ -31,7 +42,6 @@ export class QuestionService {
   }
 
   postAnswer(content: string, questionId: string) {
-    console.log('WOOO', content, 'YAAa', questionId)
     return this.http.post(`http://localhost:3000/question/${questionId}/addanswer`, {content: content, date: new Date()})
       .map((res) => res.json())
       .subscribe()

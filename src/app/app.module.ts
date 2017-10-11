@@ -8,7 +8,10 @@ import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { SelectModule } from 'ng2-select';
 import { MdSelectModule } from '@angular/material';
+import { MdTooltipModule } from '@angular/material';
 import { Parallax, ParallaxConfig } from 'ngx-parallax';
+import { ToolTipModule } from 'angular2-tooltip'
+import { FileSelectDirective } from 'ng2-file-upload'
 
 import { AppComponent } from './app.component';
 import { PagesHomeComponent } from './pages/pages-home/pages-home.component';
@@ -17,7 +20,7 @@ import { PagesSignupComponent } from './pages/pages-signup/pages-signup.componen
 import { PagesProfileComponent } from './pages/pages-profile/pages-profile.component';
 import { PagesCityinfoComponent } from './pages/pages-cityinfo/pages-cityinfo.component';
 import { PagesForumComponent } from './pages/pages-forum/pages-forum.component';
-import { PagesToptensComponent } from './pages/pages-toptens/pages-toptens.component';
+import { PagesAboutComponent } from './pages/pages-about/pages-about.component';
 import { PagesCompareComponent } from './pages/pages-compare/pages-compare.component';
 import { PagesSearchcitiesComponent } from './pages/pages-searchcities/pages-searchcities.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
@@ -41,10 +44,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',  component: PagesHomeComponent },
   { path: 'cities/:id',  component: PagesCityinfoComponent },
-  { path: 'toptens',  component: PagesToptensComponent },
+  { path: 'about',  component: PagesAboutComponent },
   { path: 'forum',  component: PagesForumComponent },
   { path: 'compare',  component: PagesCompareComponent },
-  { path: 'citysearch',  component: PagesSearchcitiesComponent }
+  { path: 'citysearch',  component: PagesSearchcitiesComponent },
+  { path: 'auth/login',  component: PagesLoginComponent },
+  { path: 'auth/signup',  component: PagesSignupComponent },
+  { path: 'profile', component: PagesProfileComponent}
 ];
 
 @NgModule({
@@ -56,7 +62,7 @@ const routes: Routes = [
     PagesProfileComponent,
     HeaderComponent,
     PagesCityinfoComponent,
-    PagesToptensComponent,
+    PagesAboutComponent,
     PagesForumComponent,
     PagesCompareComponent,
     PagesSearchcitiesComponent,
@@ -70,6 +76,7 @@ const routes: Routes = [
     QuestionCardComponent,
     CompareGraphComponent,
     Parallax,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,8 @@ const routes: Routes = [
     HttpModule,
     SelectModule,
     MdSelectModule,
+    MdTooltipModule,
+    ToolTipModule
   ],
   providers: [CityService, AuthService, QuestionService],
   bootstrap: [AppComponent]

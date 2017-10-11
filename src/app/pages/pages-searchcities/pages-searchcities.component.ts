@@ -15,6 +15,7 @@ export class PagesSearchcitiesComponent implements OnInit {
   public userSettings2: any = {
     geoTypes: ['(cities)'],
     inputPlaceholderText: 'Search for a city to view stats...',
+    showCurrentLocation: false,
   };
 
 

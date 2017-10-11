@@ -1,3 +1,10 @@
 <p>
   pages-profile works!
 </p>
+
+<button type="button" name="button" (click)="logout()">Logout</button>
+
+<form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
+  <button type="submit" name="button" [disabled]="saving">Upload photo</button>
+</form>

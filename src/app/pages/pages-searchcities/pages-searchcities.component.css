@@ -3,14 +3,14 @@
 }
 
 .header-image {
-  height: 200px;
+  height: 100px;
   background: #A1FFCE;
   background: -webkit-linear-gradient(250deg, #FAFFD1, #A1FFCE);
   background: linear-gradient(250deg, #FAFFD1, #A1FFCE);
 }
 
 .header-text {
-  height: 200px;
+  height: 100px;
   text-align: center;
 }
 
@@ -18,8 +18,8 @@
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   color: white;
-  line-height: 200px;
-  font-size: 4rem;
+  line-height: 100px;
+  font-size: 3rem;
 }
 
 .search-bar-container {

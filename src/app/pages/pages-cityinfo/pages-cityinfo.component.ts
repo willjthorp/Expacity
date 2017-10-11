@@ -28,6 +28,7 @@ export class PagesCityinfoComponent implements OnInit {
   currency: string;
   climateInfo: Object;
   prices: any;
+  showInput = false;
 
   priceItems = [
     {
@@ -137,19 +138,31 @@ export class PagesCityinfoComponent implements OnInit {
       this.getPhotoReference();
       this.getPrices();
       this.getClimate();
-      this.getCityQuestions();
+      this.questionService.getCityQuestions(this.city)
+        .subscribe((questions) => {
+          this.questionList = questions
+          if (this.questionList.length > 4) {
+            this.questionList.length = 4
+          }
+        });
     });
   }
 
   getIndices() {
     this.cities.getIndices(this.city)
       .subscribe((indices) => {
+        console.log(indices);
         this.cityIndices = indices;
-        this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
-        this.costOfLivingIndex = indices.cpi_index.toFixed(2);
-        this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
+        if (indices.quality_of_life_index) {
+          this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
+        }
+        if (indices.cpi_index) {
+          this.costOfLivingIndex = indices.cpi_index.toFixed(2);
+        }
+        if (indices.property_price_to_income_ratio) {
+          this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
+        }
         this.country = indices.name.split(',')[1].trim()
-        return this.cityIndices
       });
   }
 
@@ -158,7 +171,6 @@ export class PagesCityinfoComponent implements OnInit {
       .subscribe((info) => {
         this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
         this.getPhoto()
-        // return this.photoReference
       });
   }
 

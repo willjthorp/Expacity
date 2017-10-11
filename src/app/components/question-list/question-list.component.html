@@ -1,10 +1,14 @@
   <div class="container">
     <div class="question-list-container">
-      <app-question-form></app-question-form>
+      <app-question-form (notifyNewQuestion)="receiveNewQuestion($event)"></app-question-form>
 
-      <h2>Latest Questions</h2>
+      <div class="search-bar-container">
+        <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+      </div>
 
-      <hr />
+      <md-select placeholder="Sort by..." [(ngModel)]="selectedCategory">
+         <md-option *ngFor="let item of items" [value]="item" (click)="filter(item)">{{item}}</md-option>
+      </md-select>
 
       <ul class="question-container">
         <li *ngFor="let question of questionList">
@@ -13,5 +17,4 @@
       </ul>
 
     </div>
-
   </div>

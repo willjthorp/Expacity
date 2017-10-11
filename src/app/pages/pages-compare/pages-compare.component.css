@@ -3,8 +3,6 @@
   background: #A1FFCE;
   background: -webkit-linear-gradient(15deg, #FAFFD1, #A1FFCE);
   background: linear-gradient(15deg, #FAFFD1, #A1FFCE);
-
-
 }
 
 .header-text {
@@ -17,7 +15,7 @@
   font-weight: 200;
   color: white;
   line-height: 100px;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .top-ten-container {

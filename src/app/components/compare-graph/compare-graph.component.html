@@ -12,7 +12,7 @@
   <h3>Selected Cities</h3>
   <hr>
   <div class="no-cities" *ngIf="selectedCities.length === 0">
-    <p>No cities currently selected!</p>
+    <p>Select at least two cities and one category to compare</p>
   </div>
   <div class="city-image" *ngFor="let city of selectedCities" [ngStyle]="{'background-image': 'url(' + city.photoURL + ')'}">
     <div class="city-header">

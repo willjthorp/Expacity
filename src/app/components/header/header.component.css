@@ -4,7 +4,7 @@
 }
 
 .auth-top-header {
-  display: none;
+  display: inline-block;
 }
 
 .bottom-nav {

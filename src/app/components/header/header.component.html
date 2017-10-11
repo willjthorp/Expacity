@@ -18,8 +18,10 @@
         <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
       </div>
 
+
       <div class="auth-top-header">
-        <p>Login / Signup</p>
+        <a *ngIf="!user" [routerLink]="['/auth/login']"><p>Login / Signup</p></a>
+        <a *ngIf="user" [routerLink]="['/profile']"><p>My Account</p></a>
       </div>
 
     </div>
@@ -47,7 +49,7 @@
       </li>
     </a>
 
-    <a [routerLink]="['/toptens']" (click)="toggleMenu()">
+    <a [routerLink]="['/about']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>About</p>
       </li>

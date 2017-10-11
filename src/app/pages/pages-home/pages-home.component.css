@@ -4,8 +4,7 @@
   background-image: url(https://static.pexels.com/photos/196667/pexels-photo-196667.jpeg);
   height: 300px;
   background-repeat: no-repeat;
-  background-position: center;
-  background-position: 60%;
+  background-position: 60% 90%;
   background-size: cover;
 }
 
@@ -56,17 +55,52 @@
 
 .section {
   background-color: #f7f7f7;
-  height: 700px;
+  padding-top: 30px;
+  padding-bottom: 50px;
 }
 
-.parallax-img-1 {
-  background-image: url(https://static.pexels.com/photos/111116/pexels-photo-111116.jpeg);
-  height: 400px;
-  width: 100%;
-  background-repeat: no-repeat;
+.section h2 {
+  text-align: center;
+  font-size: 3rem;
+  padding: 20px 0;
+}
+
+
+.cities-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.city-item-container {
+  text-align: center;
+  width: 260px;
+  height: 200px;
+  margin: 20px;
   background-position: center;
-  background-position: 60%;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.city-item-container a, .city-item-container h3 {
+  line-height: 200px;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  width: 100%;
+  font-weight: 400;
+  border-radius: 20px;
+  transition: all 200ms ease;
+}
+
+.city-item-container a:hover, .city-item-container h3:hover {
+  background-color: rgba(0,0,0,0.3);
+  font-size: 1.6rem;
+  transition: all 200ms ease;
+  cursor: pointer;
 }
 
 
@@ -74,6 +108,7 @@
   .splash-image {
     height: 500px;
     background-position: center;
+    background-size: cover;
   }
 
   .splash-header {
