@@ -2,7 +2,7 @@
 
 <form class="question-form" [ngClass]="{'visible': visibleForm}" (ngSubmit)="submitForm(myForm)" #myForm="ngForm" novalidate>
   <div>
-    <input type="text" name="content" #myContent="ngModel" [(ngModel)]="content" placeholder="Enter question..." required>
+    <input type="text" name="content" #myContent="ngModel" [(ngModel)]="newQuestion.content" placeholder="Enter question..." required>
   </div>
   <div class="city-input" *ngIf="showInput">
     <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>

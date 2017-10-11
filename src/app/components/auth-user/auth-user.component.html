@@ -2,7 +2,7 @@
   <div *ngIf="loading">
     <span class="username text"></span>
   </div>
-  <div *ngIf="!loading && user">
+  <div *ngIf="!loading && !anon">
     <span class="username text">{{user.username}}</span>
     <app-auth-logout></app-auth-logout>
   </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-pages-searchcities',
   templateUrl: './pages-searchcities.component.html',
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesSearchcitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+  currentCity: string;
 
   public userSettings2: any = {
     geoTypes: ['(cities)'],
@@ -18,6 +22,10 @@ export class PagesSearchcitiesComponent implements OnInit {
     showCurrentLocation: false,
   };
 
+  autoCompleteCallback1(selectedData:any) {
+    this.currentCity = selectedData.name;
+    this.router.navigate(['/cities', this.currentCity]);
+  }
 
   cityItems = [
     {

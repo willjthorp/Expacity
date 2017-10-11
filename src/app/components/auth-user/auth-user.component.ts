@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class AuthUserComponent implements OnInit {
 
   loading: boolean = true;
-  anon: boolean;
+  anon: boolean = true;
   user: User;
   formsVisible: boolean = false;
 

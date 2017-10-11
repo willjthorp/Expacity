@@ -58,7 +58,7 @@ export class ClimateGraphComponent implements OnInit {
     console.log(e);
   }
 
-  private colors = [
+  public colors = [
         'rgba(161, 255, 206, 0.8)',
         'rgba(250, 255, 209, 0.8)',
   ];

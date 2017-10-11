@@ -125,7 +125,7 @@ export class CompareGraphComponent implements OnInit {
     console.log(e);
   }
 
-  private colors = [
+  colors = [
         'rgba(161, 255, 206, 0.7)',
         'rgba(250, 255, 209, 0.7)',
         'rgba(255, 206, 86, 0.2)',

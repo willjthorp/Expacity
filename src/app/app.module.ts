@@ -11,7 +11,7 @@ import { MdSelectModule } from '@angular/material';
 import { MdTooltipModule } from '@angular/material';
 import { Parallax, ParallaxConfig } from 'ngx-parallax';
 import { ToolTipModule } from 'angular2-tooltip'
-import { FileSelectDirective } from 'ng2-file-upload'
+import { FileUploadModule } from 'ng2-file-upload'
 
 import { AppComponent } from './app.component';
 import { PagesHomeComponent } from './pages/pages-home/pages-home.component';
@@ -75,8 +75,7 @@ const routes: Routes = [
     QuestionListComponent,
     QuestionCardComponent,
     CompareGraphComponent,
-    Parallax,
-    FileSelectDirective
+    // Parallax,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +89,8 @@ const routes: Routes = [
     SelectModule,
     MdSelectModule,
     MdTooltipModule,
-    ToolTipModule
+    ToolTipModule,
+    FileUploadModule
   ],
   providers: [CityService, AuthService, QuestionService],
   bootstrap: [AppComponent]
