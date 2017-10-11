@@ -14,7 +14,7 @@ const URL = environment.apiUrl + '/auth/upload'
   styleUrls: ['./pages-profile.component.css']
 })
 export class PagesProfileComponent implements OnInit, OnDestroy {
-  user: User;
+  user: any;
   subscriptions = [];
   saving = false;
   apiUrl = environment.apiUrl
@@ -28,6 +28,7 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
     };
@@ -36,8 +37,11 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
       this.feedback = JSON.parse(response).message;
     }
 
-    this.user = this.auth.getUser();
-    let subscription = this.auth.userChange$.subscribe((user) => this.user = user);
+    this.user = this.auth.userChange$.subscribe((user) => this.user = user)
+    let subscription = this.auth.userChange$.subscribe((user) => {
+      this.user = user
+      console.log(this.user)
+    });
     this.subscriptions.push(subscription);
   }
 

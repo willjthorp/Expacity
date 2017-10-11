@@ -1,6 +1,14 @@
+<div *ngIf="!user">
+  ...
+</div>
+
+<div *ngIf="user">
+
 <p>
   pages-profile works!
 </p>
+
+<!-- {{ user | json }} -->
 
 <button type="button" name="button" (click)="logout()">Logout</button>
 
@@ -8,3 +16,8 @@
   <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
   <button type="submit" name="button" [disabled]="saving">Upload photo</button>
 </form>
+
+<img src="{{apiUrl + user.pic_path}}">
+
+
+</div>
