@@ -7,8 +7,8 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { SelectModule } from 'ng2-select';
-import { MdSelectModule } from '@angular/material';
-import { MdTooltipModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material';
 import { Parallax, ParallaxConfig } from 'ngx-parallax';
 import { ToolTipModule } from 'angular2-tooltip'
 import { FileUploadModule } from 'ng2-file-upload'
@@ -75,7 +75,6 @@ const routes: Routes = [
     QuestionListComponent,
     QuestionCardComponent,
     CompareGraphComponent,
-    MdSelectModule,
     // Parallax,
   ],
   imports: [
@@ -88,8 +87,8 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     SelectModule,
-    MdSelectModule,
-    MdTooltipModule,
+    MatSelectModule,
+    MatTooltipModule,
     ToolTipModule,
     FileUploadModule
   ],

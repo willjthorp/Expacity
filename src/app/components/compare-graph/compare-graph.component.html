@@ -4,9 +4,9 @@
   <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
 </div>
 
-<md-select placeholder="Select a category to compare..." [(ngModel)]="selectedCategory">
-   <md-option *ngFor="let category of categories" [value]="category.name" (click)="selectCategory(category.name, category.indexName)">{{category.name}}</md-option>
-</md-select>
+<mat-select placeholder="Select a category to compare..." [(ngModel)]="selectedCategory">
+   <mat-option *ngFor="let category of categories" [value]="category.name" (click)="selectCategory(category.name, category.indexName)">{{category.name}}</mat-option>
+</mat-select>
 
 <div class="selected-cities-container">
   <h3>Selected Cities</h3>

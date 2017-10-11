@@ -14,7 +14,7 @@
     <button class="submit-button" type="submit">Submit Answer</button>
   </form>
 
-  <div class="star-container-question" mdTooltip="Star this question!" matTooltipPosition="above">
+  <div class="star-container-question" matTooltip="Star this question!" matTooltipPosition="above">
     <i class="fa fa-star-o" aria-hidden="true" (click)="handleAddQuestionStar(question._id)" [ngClass]="{'hidden': voted}"></i>
     <i class="fa fa-star hidden" aria-hidden="true" [ngClass]="{'hidden': !voted}"></i>
     <p>{{question.stars}}</p>
@@ -25,7 +25,7 @@
   <button (click)="toggleAnswerList()">View Answers ({{question.answers.length}})</button>
   <div class="answer-container" [ngClass]="{'visible': visibleAnswers}">
     <div class="answers" *ngFor="let answer of question.answers">
-      <div class="star-container-answer" mdTooltip="Star this answer!" matTooltipPosition="above">
+      <div class="star-container-answer" matTooltip="Star this answer!" matTooltipPosition="above">
         <i class="fa fa-star-o" aria-hidden="true" (click)="handleAddAnswerStar(question._id, answer._id)" [ngClass]="{'hidden': answer._id}"></i>
         <i class="fa fa-star" aria-hidden="true" [ngClass]="{'hidden': answer._id}"></i>
         <p>{{answer.stars}}</p>

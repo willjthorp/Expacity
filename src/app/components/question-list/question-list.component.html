@@ -6,9 +6,9 @@
         <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
       </div>
 
-      <md-select placeholder="Sort by..." [(ngModel)]="selectedCategory">
-         <md-option *ngFor="let item of items" [value]="item" (click)="filter(item)">{{item}}</md-option>
-      </md-select>
+      <mat-select placeholder="Sort by..." [(ngModel)]="selectedCategory">
+         <mat-option *ngFor="let item of items" [value]="item" (click)="filter(item)">{{item}}</mat-option>
+      </mat-select>
 
       <ul class="question-container">
         <li *ngFor="let question of questionList">
