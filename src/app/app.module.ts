@@ -75,6 +75,7 @@ const routes: Routes = [
     QuestionListComponent,
     QuestionCardComponent,
     CompareGraphComponent,
+    MdSelectModule,
     // Parallax,
   ],
   imports: [
