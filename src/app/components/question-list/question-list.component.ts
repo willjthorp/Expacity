@@ -21,8 +21,9 @@ export class QuestionListComponent implements OnInit {
   }
 
   receiveNewQuestion(question) {
-    this.questionList.push(question)
-    console.log(this.questionList)
+    question.justAdded = true;
+    this.questionList.unshift(question);
+    setTimeout(() => question.justAdded = false, 1000);
   }
 
   getQuestions() {

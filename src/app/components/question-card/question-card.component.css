@@ -1,9 +1,13 @@
-
 .question-container {
   background: #f7f7f7;
   padding: 10px;
   margin-bottom: 30px;
   position: relative;
+  transition: background 2s ease;
+}
+
+.question-container.flash {
+  background: red;
 }
 
 .question-container h3 {

@@ -1,4 +1,4 @@
-<div class="question-container">
+<div class="question-container" [ngClass]="{'flash': question.justAdded}">
 
   <!-- Question info -->
   <p>City: {{question && question.city}}</p>
