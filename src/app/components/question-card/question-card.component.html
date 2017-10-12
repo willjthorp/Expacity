@@ -1,4 +1,4 @@
-<div class="question-container" [ngClass]="{'flash': question.justAdded}">
+<div class="question-container" [ngClass]="{'flash': question.justAdded}"> <!-- xxxs if user -->
 
   <!-- Question info -->
   <p>City: {{question && question.city}}</p>
@@ -9,13 +9,15 @@
   <!-- Add answer -->
   <form (ngSubmit)="submitAnswerForm(myForm)" #myForm="ngForm" novalidate>
     <div class="input-wrapper">
-      <input type="text" name="answer" #myContent="ngModel" [(ngModel)]="newAnswer.content" placeholder="Enter answer here..." minlength="6" />
+      <input type="text" name="answer" #myContent="ngModel" [(ngModel)]="newAnswer.content" placeholder="Enter answer here..." minlength="6" required/>
+      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.required">please enter your...!</p>
+      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.minlength">6 characters please!</p>
     </div>
     <button class="submit-button" type="submit">Submit Answer</button>
   </form>
 
   <div class="star-container-question" matTooltip="Star this question!" matTooltipPosition="above" (click)="handleAddQuestionStar(question._id)">
-    <i class="fa fa-star-o" aria-hidden="true" [ngClass]="{'hidden': voted}"></i>
+    <i class="fa fa-star-o" aria-hidden="true" [ngClass]="{'hidden': voted}"></i> <!-- xxx user.questions.indexOf(question._id) !== -1 -->
     <i class="fa fa-star hidden" aria-hidden="true" [ngClass]="{'hidden': !voted}"></i>
     <p>{{question.stars}}</p>
   </div>

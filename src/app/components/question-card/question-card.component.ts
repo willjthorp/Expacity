@@ -11,8 +11,10 @@ export class QuestionCardComponent implements OnInit {
 
   @Input() question: any
 
+  // xxx user: User | null;
   visibleAnswers = false;
-  voted = false;
+  submitted = false;
+  voted = false; // xxx remove
   answerStarVotes = [];
   answerIndex: number
 
@@ -27,13 +29,17 @@ export class QuestionCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    // xxx load the user (sync + async)
     this.question.answers.forEach((item, index) => {
       this.answerStarVotes.push(item._id)
     })
-    console.log(this.answerStarVotes)
   }
 
   submitAnswerForm(myForm) {
+    this.submitted = true;
+    if (myForm.invalid) {
+      return;
+    }
     this.questionService.postAnswer(myForm.value.answer, this.question._id)
   }
 
