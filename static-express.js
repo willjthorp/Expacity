@@ -8,4 +8,4 @@ app.use((req, res, next) => {
   res.sendFile(path.resolve('./dist/index.html'));
 });
 
-app.listen(8080);
+app.listen(process.env.PORT);
