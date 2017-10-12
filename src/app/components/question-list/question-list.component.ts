@@ -47,12 +47,11 @@ export class QuestionListComponent implements OnInit {
     this.questionService.getCityQuestions(selectedData.name)
       .subscribe((questions) => {
         this.questionList = questions;
-        this.filter(this.selectedCategory);
+        this.sort(this.selectedCategory);
       });
   }
 
-  filter(item): void {
-    console.log('filtering')
+  sort(item): void {
     switch (item) {
       case 'Newest':
         this.questionList.sort((a, b) => {

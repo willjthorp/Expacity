@@ -1,4 +1,8 @@
-
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .splash-image {
   background-image: url(https://static.pexels.com/photos/196667/pexels-photo-196667.jpeg);
@@ -8,7 +12,7 @@
   background-size: cover;
 }
 
-.splash-header {
+.splash-overlay {
   background: #A1FFCE;  /
   background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
   background: linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
@@ -103,6 +107,27 @@
   cursor: pointer;
 }
 
+.questions-container h3 {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 2rem;
+}
+
+.bottom-image {
+  background-image: url(  http://static.wixstatic.com/media/bb5967be28cc4bcfbdb91b75efb8ec98.jpg);
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: 50px;
+}
+
+.bottom-overlay {
+  background: #A1FFCE;  /
+  background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
+  background: linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
+  height: 250px;
+}
 
 @media only screen and (min-width: 762px) {
   .splash-image {
@@ -111,15 +136,15 @@
     background-size: cover;
   }
 
-  .splash-header {
+  .splash-overlay {
     height: 500px;
   }
 
-  .splash-header h2 {
+  .splash-overlay h2 {
     font-size: 5rem;
   }
 
-  .splash-header h3 {
+  .splash-overlay h3 {
     font-size: 2rem;
     margin-top: 10px;
   }
@@ -127,4 +152,5 @@
   .splash-text-container {
     margin: 30px auto;
   }
+
 }

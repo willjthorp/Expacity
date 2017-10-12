@@ -2,7 +2,7 @@
 
   <!-- Question info -->
   <p>City: {{question && question.city}}</p>
-  <p>Posted on: {{question && question.date | date:'short'}}</p>
+  <p>{{question && question.date | date:'short'}}</p>
   <hr />
   <h3>{{question && question.content}}</h3>
 
@@ -14,8 +14,8 @@
     <button class="submit-button" type="submit">Submit Answer</button>
   </form>
 
-  <div class="star-container-question" matTooltip="Star this question!" matTooltipPosition="above">
-    <i class="fa fa-star-o" aria-hidden="true" (click)="handleAddQuestionStar(question._id)" [ngClass]="{'hidden': voted}"></i>
+  <div class="star-container-question" matTooltip="Star this question!" matTooltipPosition="above" (click)="handleAddQuestionStar(question._id)">
+    <i class="fa fa-star-o" aria-hidden="true" [ngClass]="{'hidden': voted}"></i>
     <i class="fa fa-star hidden" aria-hidden="true" [ngClass]="{'hidden': !voted}"></i>
     <p>{{question.stars}}</p>
   </div>
@@ -25,8 +25,8 @@
   <button (click)="toggleAnswerList()">View Answers ({{question.answers.length}})</button>
   <div class="answer-container" [ngClass]="{'visible': visibleAnswers}">
     <div class="answers" *ngFor="let answer of question.answers">
-      <div class="star-container-answer" matTooltip="Star this answer!" matTooltipPosition="above">
-        <i class="fa fa-star-o" aria-hidden="true" (click)="handleAddAnswerStar(question._id, answer._id)" [ngClass]="{'hidden': answer._id}"></i>
+      <div class="star-container-answer" matTooltip="Star this answer!" matTooltipPosition="above" (click)="handleAddAnswerStar(question._id, answer._id)">
+        <i class="fa fa-star-o" aria-hidden="true" [ngClass]="{'hidden': answer._id}"></i>
         <i class="fa fa-star" aria-hidden="true" [ngClass]="{'hidden': answer._id}"></i>
         <p>{{answer.stars}}</p>
       </div>

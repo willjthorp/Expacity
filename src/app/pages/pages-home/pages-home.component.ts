@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { QuestionService } from '../../services/question.service'
+
 @Component({
   selector: 'app-pages-home',
   templateUrl: './pages-home.component.html',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
+    this.getCityQuestions();
+  }
+
+  questionList: any;
+
+  getCityQuestions() {
+    this.questionService.getQuestions()
+      .subscribe((questions) => {
+        this.questionList = questions;
+        this.questionList.filter((question) => {
+          question = new Date(question.date);
+          let oneWeekAgo = new Date();
+          oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+          return question > oneWeekAgo;
+        });
+        this.questionList.sort((a, b) => {
+          return b.stars - a.stars
+        });
+        this.questionList.length = 4;
+      });
   }
 
 

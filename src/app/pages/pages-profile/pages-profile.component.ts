@@ -6,7 +6,8 @@ import { Router } from '@angular/router'
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload.js'
 import { environment } from '../../../environments/environment'
 
-const URL = environment.apiUrl + '/auth/upload'
+const URL = environment.apiUrl + '/auth/upload';
+const picUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-pages-profile',
@@ -14,13 +15,14 @@ const URL = environment.apiUrl + '/auth/upload'
   styleUrls: ['./pages-profile.component.css']
 })
 export class PagesProfileComponent implements OnInit, OnDestroy {
-  user: any;
+  user: User;
   subscriptions = [];
   saving = false;
   apiUrl = environment.apiUrl
   editUser = new User;
   userData: User;
   file: any;
+  picUrl = environment.apiUrl;
 
   public uploader: FileUploader = new FileUploader({url: URL})
   feedback: string;
@@ -28,6 +30,8 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
+    console.log(this.user);
 
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
@@ -37,11 +41,10 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
       this.feedback = JSON.parse(response).message;
     }
 
-    this.user = this.auth.userChange$.subscribe((user) => this.user = user)
     let subscription = this.auth.userChange$.subscribe((user) => {
       this.user = user
-      console.log(this.user)
     });
+
     this.subscriptions.push(subscription);
   }
 

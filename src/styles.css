@@ -97,8 +97,8 @@ a {
 }
 
 .mat-select-placeholder.mat-floating-placeholder {
-  opacity: 0 !important;
-  z-index: -1000;
+  /*opacity: 0 !important;*/
+  /*z-index: -1000;*/
 }
 
 

@@ -2,22 +2,27 @@
   ...
 </div>
 
-<div *ngIf="user">
+<div *ngIf="user" class="profile-container">
 
-<p>
-  pages-profile works!
-</p>
+  <h2>Welcome, {{user.username}}!</h2>
 
-<!-- {{ user | json }} -->
+  <div class="profile-img-container" [ngStyle]="{'background-image': 'url(' + picUrl + user.pic_path + ')'}"></div>
 
-<button type="button" name="button" (click)="logout()">Logout</button>
+    <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
+      <label for="file-upload" class="custom-file-upload">
+        Choose New Picture
+      </label>
+      <input id="file-upload" type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
+      <button type="submit" name="button" [disabled]="saving">Save Picture</button>
+    </form>
 
-<form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
-  <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
-  <button type="submit" name="button" [disabled]="saving">Upload photo</button>
-</form>
+    <h3>My questions</h3>
 
-<img src="{{apiUrl + user.pic_path}}">
+    
+
+
+
+    <button type="button" name="button" (click)="logout()">Logout</button>
 
 
 </div>

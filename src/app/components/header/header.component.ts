@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Router } from '@angular/router';
 
+import { User } from '../../models/user.model'
+
 import { AuthService } from '../../services/auth.service'
 
 @Component({
@@ -13,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
-  user: any;
+  user: User;
   currentCity: string;
   subscriptions = [];
   toggle: boolean = false;
@@ -25,8 +27,12 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-    this.user = this.auth.userChange$.subscribe((user) => this.user = user)
-    let subscription = this.auth.userChange$.subscribe((user) => this.user = user);
+    this.user = this.auth.getUser();
+
+    let subscription = this.auth.userChange$.subscribe((user) => {
+      this.user = user
+    });
+    
     this.subscriptions.push(subscription);
   }
 

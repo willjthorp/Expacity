@@ -1,6 +1,6 @@
 <div class="splash-image">
 <!-- <div class="splash-image" parallax [config]="{initialVal: -100, ratio: 0.4}"> -->
-  <div class="splash-header">
+  <div class="splash-overlay">
     <div class="splash-text-container">
     <h2>Thinking of moving city?  </h2>
     </div>
@@ -24,5 +24,20 @@
         <a [routerLink]="['/cities/' + city.name.trim()]"><h3>{{city.name}}</h3></a>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="questions-container">
+    <h3>This week's top questions</h3>
+    <li *ngFor="let question of questionList">
+      <app-question-card [question]="question"></app-question-card>
+    </li>
+  </div>
+</div>
+
+<div class="bottom-image">
+  <div class="bottom-overlay">
   </div>
 </div>
