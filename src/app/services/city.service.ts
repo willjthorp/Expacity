@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -13,32 +13,44 @@ export class CityService {
   constructor(private http: Http) { }
 
   getCities() {
-    return this.http.get(baseUrl + `/cityapi/cities`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/cities`, options)
       .map((res) => res.json())
   }
 
   getIndices(city: string) {
-    return this.http.get(baseUrl + `/cityapi/indices/${city}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/indices/${city}`, options)
       .map((res) => res.json())
   }
 
   getPhotoReference(city: string) {
-    return this.http.get(baseUrl + `/cityapi/photoreference/${city}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/photoreference/${city}`, options)
       .map((res) => res.json())
   }
 
   getPhoto(photo: string) {
-    return this.http.get(baseUrl + `/cityapi/photo/${photo}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/photo/${photo}`, options)
       .map((res) => res.json())
   }
 
   getPrices(city: string) {
-    return this.http.get(baseUrl + `/cityapi/prices/${city}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/prices/${city}`, options)
       .map((res) => res.json())
   }
 
   getClimate(city: string) {
-    return this.http.get(baseUrl + `/cityapi/city_climate/${city}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/cityapi/city_climate/${city}`, options)
       .map((res) => res.json())
   }
 
