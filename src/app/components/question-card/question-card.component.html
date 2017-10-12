@@ -4,21 +4,27 @@
   <p>City: {{question && question.city}}</p>
   <p>{{question && question.date | date:'short'}}</p>
   <hr />
+  <div *ngIf="question.creator" class="card-img-container" [ngStyle]="{'background-image': 'url(' + picUrl + question.creator.pic_path + ')'}">
+  </div>
+  <div *ngIf="!question.creator" class="card-img-container" [ngStyle]="{'background-image': 'url(' + picUrl + '/images/profile-default.jpg)'}">
+  </div>
+  <p *ngIf="question.creator" class="username-text">Asked by: {{question.creator && question.creator.username}}</p>
+  <p *ngIf="!question.creator" class="username-text">Asked by: Anonymous</p>
   <h3>{{question && question.content}}</h3>
 
   <!-- Add answer -->
   <form (ngSubmit)="submitAnswerForm(myForm)" #myForm="ngForm" novalidate>
     <div class="input-wrapper">
       <input type="text" name="answer" #myContent="ngModel" [(ngModel)]="newAnswer.content" placeholder="Enter answer here..." minlength="6" required/>
-      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.required">please enter your...!</p>
-      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.minlength">6 characters please!</p>
+      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.required">Please enter some content</p>
+      <p class="validation" *ngIf="submitted && myContent.invalid && myContent.errors.minlength">Answer must be at least 6 characters</p>
     </div>
     <button class="submit-button" type="submit">Submit Answer</button>
   </form>
 
   <div class="star-container-question" matTooltip="Star this question!" matTooltipPosition="above" (click)="handleAddQuestionStar(question._id)">
-    <i class="fa fa-star-o" aria-hidden="true" [ngClass]="{'hidden': voted}"></i> <!-- xxx user.questions.indexOf(question._id) !== -1 -->
-    <i class="fa fa-star hidden" aria-hidden="true" [ngClass]="{'hidden': !voted}"></i>
+    <i class="fa fa-star-o" aria-hidden="true" ></i> <!-- xxx user.questions.indexOf(question._id) !== -1 -->
+    <i class="fa fa-star hidden" aria-hidden="true" ></i>
     <p>{{question.stars}}</p>
   </div>
 

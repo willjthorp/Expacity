@@ -29,6 +29,13 @@ export class QuestionService {
       .map((res) => res.json());
   }
 
+  getUserQuestions(userId: string) {
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(baseUrl + `/question/userquestions/${userId}`, options)
+      .map((res) => res.json());
+  }
+
   postQuestion(content: string, city: string) {
     let options = new RequestOptions();
     options.withCredentials = true;

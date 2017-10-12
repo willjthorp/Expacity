@@ -151,7 +151,6 @@ export class PagesCityinfoComponent implements OnInit {
   getIndices() {
     this.cities.getIndices(this.city)
       .subscribe((indices) => {
-        console.log(indices);
         this.cityIndices = indices;
         if (indices.quality_of_life_index) {
           this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);

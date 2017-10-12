@@ -31,6 +31,18 @@
     <div class="container">
     <ul>
 
+    <a class="burger-auth-link" [routerLink]="['/auth/login']" (click)="toggleMenu()">
+      <li class="bottom-nav-item">
+        <p>Login</p>
+      </li>
+    </a>
+
+    <a class="burger-auth-link" [routerLink]="['/auth/signup']" (click)="toggleMenu()">
+      <li class="bottom-nav-item">
+        <p>Sign up</p>
+      </li>
+    </a>
+
     <a [routerLink]="['/citysearch']" (click)="toggleMenu()">
       <li class="bottom-nav-item">
         <p>View City Stats</p>

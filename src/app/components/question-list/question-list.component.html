@@ -7,7 +7,7 @@
       </div>
 
         <mat-select placeholder="Sort by..." [(ngModel)]="selectedCategory">
-           <mat-option *ngFor="let item of items" [value]="item" (click)="filter(item)">{{item}}</mat-option>
+           <mat-option *ngFor="let item of items" [value]="item" (click)="sort(item)">{{item}}</mat-option>
         </mat-select>
 
       <ul class="question-container">

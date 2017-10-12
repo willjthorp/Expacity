@@ -115,7 +115,7 @@ li {
 
 .bottom-image {
   background-image: url(  http://static.wixstatic.com/media/bb5967be28cc4bcfbdb91b75efb8ec98.jpg);
-  height: 250px;
+  height: 350px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -126,7 +126,7 @@ li {
   background: #A1FFCE;  /
   background: -webkit-linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
   background: linear-gradient(to right, rgba(250, 255, 209, 0.1), rgba(161, 255, 206, 0.6));
-  height: 250px;
+  height: 350px;
 }
 
 @media only screen and (min-width: 762px) {

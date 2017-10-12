@@ -41,7 +41,6 @@ export class CompareGraphComponent implements OnInit {
   selectCategory(name, indexName) {
     this.indexName = indexName;
     this.barChartLabels = [name + ''];
-    console.log(this.barChartLabels)
     this.setData(indexName)
   }
 
@@ -73,14 +72,12 @@ export class CompareGraphComponent implements OnInit {
       .subscribe((photo) => {
         this.selectedCities.push({name: city, photoURL: photo.location});
         this.getIndices(city);
-        console.log(this.selectedCities)
       });
   }
 
   constructor(private route: ActivatedRoute, private cities: CityService) { }
 
   ngOnInit() {
-    console.log(this.selectedCities);
   }
 
   // Search box settings -------------------------------------------------------------------------------------------
@@ -118,11 +115,9 @@ export class CompareGraphComponent implements OnInit {
 
   // events
   public chartClicked(e:any):void {
-    console.log(e);
   }
 
   public chartHovered(e:any):void {
-    console.log(e);
   }
 
   colors = [

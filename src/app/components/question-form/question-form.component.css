@@ -4,7 +4,6 @@ button {
   background-color: rgba(255,255,255,0);
   font-family: 'Nunito', sans-serif;
   font-size: 1.1rem;
-  margin: 10px 0 30px 0;
   color: rgba(61, 255, 74, 0.9);
   display: block;
   width: 100%;
@@ -38,6 +37,10 @@ input {
 
 .hidden {
   display: none;
+}
+
+.submit-button {
+  margin-bottom: 20px;
 }
 
 .question-button {

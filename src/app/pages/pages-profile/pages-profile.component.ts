@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../models/user.model'
-import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router'
+
+import { QuestionService } from '../../services/question.service'
+import { AuthService } from '../../services/auth.service'
 
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload.js'
 import { environment } from '../../../environments/environment'
 
 const URL = environment.apiUrl + '/auth/upload';
-const picUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-pages-profile',
@@ -23,15 +24,15 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
   userData: User;
   file: any;
   picUrl = environment.apiUrl;
+  userQuestions: any;
 
   public uploader: FileUploader = new FileUploader({url: URL})
   feedback: string;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private questionService: QuestionService) { }
 
   ngOnInit() {
     this.user = this.auth.getUser();
-    console.log(this.user);
 
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
@@ -43,15 +44,20 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
 
     let subscription = this.auth.userChange$.subscribe((user) => {
       this.user = user
+      this.questionService.getUserQuestions(this.user.id)
+        .subscribe((questions) => {
+          this.userQuestions = questions;
+        })
     });
 
     this.subscriptions.push(subscription);
+
   }
 
   logout() {
     this.auth.logout().subscribe(() => {
-      this.router.navigate(['/home'])
     });
+    this.router.navigate(['/home'])
   }
 
   private submit() {

@@ -7,7 +7,8 @@
 }
 
 .question-container.flash {
-  background: red;
+  background: rgba(74, 255, 0, 0.2);
+  transition: background 2s ease;
 }
 
 .question-container h3 {
@@ -53,6 +54,17 @@
   cursor: pointer;
 }
 
+.card-img-container {
+  min-width: 70px;
+  min-height: 70px;
+  width: 70px;
+  height: 70px;
+  margin: 10px auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
 .question-container button:hover {
   background-color: rgba(255,255,255,1);
   transition: all 200ms ease;
@@ -82,7 +94,7 @@
 .star-container-question {
   position: absolute;
   top: 15px;
-  right: 30px;
+  right: 15px;
 }
 
 .star-container-question:hover {
@@ -126,7 +138,14 @@
   font-size: 1.2rem;
 }
 
+.validation {
+  text-align: center;
+  color: red;
+}
 
+.username-text {
+  text-align: center !important;
+}
 
 @media only screen and (min-width: 762px) {
   .question-container {
@@ -145,5 +164,9 @@
 
   .input-wrapper {
     text-align: center;
+  }
+
+  .star-container-question {
+    right: 30px;
   }
 }

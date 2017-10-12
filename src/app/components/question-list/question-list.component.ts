@@ -9,28 +9,32 @@ import { QuestionService } from '../../services/question.service'
 })
 export class QuestionListComponent implements OnInit {
 
-  @Input() questionList: any
+  @Input() userQuestions: any
 
+  questionList: any;
   currentCity: String;
   selectedCategory: string;
 
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
-    this.getQuestions()
+    if (!this.userQuestions) {
+      this.getQuestions()
+    } else {
+      this.questionList = this.userQuestions
+    }
   }
 
   receiveNewQuestion(question) {
     question.justAdded = true;
     this.questionList.unshift(question);
-    setTimeout(() => question.justAdded = false, 1000);
+    setTimeout(() => question.justAdded = false, 500);
   }
 
   getQuestions() {
     this.questionService.getQuestions()
       .subscribe((questions) => {
         this.questionList = questions
-        console.log(this.questionList)
         this.questionList.forEach((question) => {
           question.answers.sort((a,b) => {
             return b.stars - a.stars
