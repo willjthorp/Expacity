@@ -12,7 +12,7 @@
       </div>
     </a>
 
-    <img (click)="toggleMenu()" class="burger-menu-icon" src="/assets/images/menu-options.png">
+      <img (click)="toggleMenu()" class="burger-menu-icon" src="/assets/images/menu-options.png">
 
       <div class="nav-search-bar-container">
         <ng4geo-autocomplete [userSettings]="userSettings2" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
@@ -20,8 +20,10 @@
 
 
       <div class="auth-top-header">
-        <a *ngIf="!user" [routerLink]="['/auth/login']"><p>Login / Signup</p></a>
+        <a *ngIf="!user" [routerLink]="['/auth/login']"><p>Login</p></a>
+        <a *ngIf="!user" [routerLink]="['/auth/signup']"><p>Signup</p></a>
         <a *ngIf="user" [routerLink]="['/profile']"><p>My Account</p></a>
+        <a *ngIf="user" (click)="logout()"><p>Logout</p></a>
       </div>
 
     </div>

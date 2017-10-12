@@ -17,12 +17,10 @@
       <button type="submit" name="button" [disabled]="saving">Save Picture</button>
     </form>
 
+    <h3>My Questions</h3>
     <div class="container" *ngIf="userQuestions && userQuestions.length > 0">
       <app-question-list [userQuestions]="userQuestions"></app-question-list>
     </div>
-
-
-    <button type="button" name="button" (click)="logout()">Logout</button>
 
 
 </div>

@@ -33,8 +33,9 @@ export class QuestionFormComponent implements OnInit {
 
   submitForm(myForm) {
     this.newQuestion.content = myForm.value.content;
-    this.notifyNewQuestion.emit(this.newQuestion);
-    this.questionService.postQuestion(myForm.value.content, myForm.value.city)
+    this.questionService.postQuestion(myForm.value.content, myForm.value.city).subscribe((question) => {
+      this.notifyNewQuestion.emit(question);
+    })
     this.visibleForm = false;
   }
 

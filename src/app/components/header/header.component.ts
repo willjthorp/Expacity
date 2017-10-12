@@ -32,8 +32,14 @@ export class HeaderComponent implements OnInit {
     let subscription = this.auth.userChange$.subscribe((user) => {
       this.user = user
     });
-    
+
     this.subscriptions.push(subscription);
+  }
+
+  logout() {
+    this.auth.logout().subscribe(() => {
+    });
+    this.router.navigate(['/home'])
   }
 
   autoCompleteCallback1(selectedData:any) {

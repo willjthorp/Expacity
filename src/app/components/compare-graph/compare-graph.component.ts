@@ -21,13 +21,15 @@ export class CompareGraphComponent implements OnInit {
   bothSelected: boolean = false;
   cityIndices = [];
   tempData = [];
-  selectedCategory = '';
-  indexName = '';
+  selectedCategory = 'Health Care';
+  indexName = 'health_care_index';
 
   // Callback from city selector
   autoCompleteCallback1(selectedData:any) {
     this.showGraph = false;
-    this.getPhotoReference(selectedData.name)
+    if (selectedData.name && this.selectedCities && this.selectedCities.length < 6) {
+      this.getPhotoReference(selectedData.name)
+    }
   }
 
   getIndices(selectedCity) {
@@ -63,7 +65,6 @@ export class CompareGraphComponent implements OnInit {
       .subscribe((info) => {
         this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
         this.getPhoto(city)
-        // return this.photoReference
       });
   }
 
@@ -107,7 +108,7 @@ export class CompareGraphComponent implements OnInit {
        }]
      }
   };
-  public barChartLabels:string[] = [this.selectedCategory];
+  public barChartLabels:string[] = ['Health Care'];
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 

@@ -41,15 +41,20 @@ export class QuestionCardComponent implements OnInit {
       return;
     }
     this.questionService.postAnswer(myForm.value.answer, this.question._id)
+    this.question.answers.push({
+      content: myForm.value.answer,
+      date: new Date(),
+      stars: 0
+    })
   }
 
   handleAddQuestionStar(id) {
-    this.questionService.addQuestionStar(id)
+    this.questionService.addQuestionStar(id).subscribe()
     this.question.stars++;
   }
 
   handleAddAnswerStar(questionId, answerId) {
-    this.questionService.addAnswerStar(questionId, answerId)
+    this.questionService.addAnswerStar(questionId, answerId).subscribe();
     this.question.answers.find(c => c._id === answerId).stars++;
   }
 

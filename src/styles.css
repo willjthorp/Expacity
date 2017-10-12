@@ -143,6 +143,14 @@ html, body {
 
 @media only screen and (min-width: 1224px) {
   .container {
+    width: 85%;
+    margin: 0 auto;
+    transition: width 200ms ease, margin 200ms ease;
+  }
+}
+
+@media only screen and (min-width: 1550px) {
+  .container {
     width: 70%;
     margin: 0 auto;
     transition: width 200ms ease, margin 200ms ease;

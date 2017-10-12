@@ -111,7 +111,11 @@ header h1 {
 
 
 
-@media only screen and (min-width: 762px) {
+@media only screen and (min-width: 950px) {
+  .header-container {
+    position: relative;
+  }
+
   .logo {
     top: -4px;
   }
@@ -125,9 +129,25 @@ header h1 {
   }
 
   .auth-top-header {
+    position: absolute;
+    right: 20px;
     display: inline-block;
+    top: 5px;
+    transition: all 200ms ease;
   }
 
+  .auth-top-header p {
+   padding: 10px 10px;
+   display: inline-block;
+   margin-left: 20px;
+  }
+
+
+  .auth-top-header p:hover {
+    border-bottom: 2px solid black;
+    transition: all 200ms ease;
+    cursor: pointer;
+  }
 
   header h1 {
     font-size: 2.8rem;
@@ -138,14 +158,14 @@ header h1 {
   }
 
   .nav-search-bar-container {
-    width: 50%;
+    width: 40%;
     display: inline-block;
     position: relative;
     top: 3px;
   }
 
   .bottom-nav-item {
-    width: 24%;
+    width: 24.5%;
     display: inline-block;
   }
 
@@ -161,4 +181,10 @@ header h1 {
       height: 50px;
       }
 
+}
+
+@media only screen and (min-width: 1280px) {
+  .nav-search-bar-container {
+    width: 50%;
+  }
 }

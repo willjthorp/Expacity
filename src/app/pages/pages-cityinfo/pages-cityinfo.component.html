@@ -1,6 +1,6 @@
 
-<div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}">
-<!-- <div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}" parallax [config]="{initialVal: -100, ratio: 0.5}"> -->
+<!-- <div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}"> -->
+<div class="city-image" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}" parallax [config]="{initialVal: -100, ratio: 0.5}">
   <div class="city-header">
     <h2>{{city}}</h2>
     <h3>{{country}}</h3>
@@ -56,7 +56,7 @@
 <div class="questions-box">
   <div class="container">
     <h2>Questions</h2>
-    <app-question-form [city]="city" [showInput]="showInput"></app-question-form>
+    <app-question-form (notifyNewQuestion)="receiveNewQuestion($event)" [city]="city" [showInput]="showInput"></app-question-form>
     <p *ngIf="questionList && questionList.length === 0">No questions have been asked for this city yet!</p>
     <ul class="question-container">
       <li *ngFor="let question of questionList">
@@ -64,7 +64,7 @@
       </li>
     </ul>
     <div class="view-all" [routerLink]="['/forum']">
-      <p>View All Questions</p>  
+      <p>View All Questions</p>
     </div>
   </div>
 </div>

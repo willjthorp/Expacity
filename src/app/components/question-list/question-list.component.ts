@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { QuestionService } from '../../services/question.service'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-question-list',
@@ -13,9 +14,12 @@ export class QuestionListComponent implements OnInit {
 
   questionList: any;
   currentCity: String;
-  selectedCategory: string;
+  selectedCategory = "Newest"
 
-  constructor(private questionService: QuestionService) { }
+  constructor(
+    private auth: AuthService,
+    private questionService: QuestionService
+  ) { }
 
   ngOnInit() {
     if (!this.userQuestions) {
@@ -27,6 +31,7 @@ export class QuestionListComponent implements OnInit {
 
   receiveNewQuestion(question) {
     question.justAdded = true;
+    question.creator = this.auth.getUser();
     this.questionList.unshift(question);
     setTimeout(() => question.justAdded = false, 500);
   }
@@ -44,7 +49,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   handleAddAnswer(content, questionId) {
-    this.questionService.postAnswer(content, questionId);
+    this.questionService.postAnswer(content, questionId).subscribe();
   }
 
   autoCompleteCallback1(selectedData:any) {

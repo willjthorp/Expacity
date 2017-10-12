@@ -1,8 +1,10 @@
 <div class="question-container" [ngClass]="{'flash': question.justAdded}"> <!-- xxxs if user -->
 
   <!-- Question info -->
-  <p>City: {{question && question.city}}</p>
-  <p>{{question && question.date | date:'short'}}</p>
+  <div class="left-align-text">
+    <p>City: {{question && question.city}}</p>
+    <p>{{question && question.date | date:'short'}}</p>
+  </div>
   <hr />
   <div *ngIf="question.creator" class="card-img-container" [ngStyle]="{'background-image': 'url(' + picUrl + question.creator.pic_path + ')'}">
   </div>

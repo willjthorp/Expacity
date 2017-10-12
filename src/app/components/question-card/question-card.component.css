@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.question-container p {
+.left-align-text {
   text-align: left;
 }
 
@@ -139,12 +139,12 @@
 }
 
 .validation {
-  text-align: center;
   color: red;
+  margin: 5px 0;
 }
 
 .username-text {
-  text-align: center !important;
+  text-align: center;
 }
 
 @media only screen and (min-width: 762px) {

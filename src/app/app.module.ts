@@ -75,7 +75,7 @@ const routes: Routes = [
     QuestionListComponent,
     QuestionCardComponent,
     CompareGraphComponent,
-    // Parallax,
+    Parallax,
   ],
   imports: [
     BrowserModule,

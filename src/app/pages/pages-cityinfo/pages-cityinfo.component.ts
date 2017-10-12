@@ -209,4 +209,10 @@ export class PagesCityinfoComponent implements OnInit {
       });
   }
 
+  receiveNewQuestion(question) {
+    question.justAdded = true;
+    this.questionList.unshift(question);
+    setTimeout(() => question.justAdded = false, 500);
+  }
+
 }

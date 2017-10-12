@@ -40,8 +40,7 @@ export class QuestionService {
     let options = new RequestOptions();
     options.withCredentials = true;
     return this.http.post(baseUrl + `/question/questions`, {content: content, city: city, date: new Date()}, options)
-      .map((res) => res.json())
-      .subscribe()
+      .map((res) => res.json());
   }
 
   addQuestionStar(questionId: string) {
@@ -49,7 +48,6 @@ export class QuestionService {
     options.withCredentials = true;
     return this.http.get(baseUrl + `/question/${questionId}/addQuestionStar`, options)
       .map((res) => res.json())
-      .subscribe()
   }
 
   addAnswerStar(questionId: string, answerId: string) {
@@ -57,7 +55,6 @@ export class QuestionService {
     options.withCredentials = true;
     return this.http.get(baseUrl + `/question/${questionId}/addAnswerStar/${answerId}`, options)
       .map((res) => res.json())
-      .subscribe()
   }
 
   getAnswers() {
@@ -72,7 +69,6 @@ export class QuestionService {
     options.withCredentials = true;
     return this.http.post(baseUrl + `/question/${questionId}/addanswer`, {content: content, date: new Date()}, options)
       .map((res) => res.json())
-      .subscribe()
   }
 
 }

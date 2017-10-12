@@ -54,12 +54,6 @@ export class PagesProfileComponent implements OnInit, OnDestroy {
 
   }
 
-  logout() {
-    this.auth.logout().subscribe(() => {
-    });
-    this.router.navigate(['/home'])
-  }
-
   private submit() {
     this.saving = true;
     this.auth.updateUser(this.editUser).subscribe(() => {
