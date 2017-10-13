@@ -9,26 +9,31 @@
 }
 
 .custom-file-upload, .profile-container button {
-  width: 100px;
-  display: inline-block;
+  width: 200px;
+  display: block;
   text-align: center;
   font-family: 'Nunito', sans-serif;
-  border: 1px solid rgb(187, 187, 187);
-  color: rgb(187, 187, 187);
+  border: 1px solid rgb(131, 131, 131);
+  color: rgb(131, 131, 131);
   border-radius: 5px;
   padding: 5px 0;
   background: white;
   font-size: 1rem;
+  margin: 0 auto;
+  margin-top: 3px;
+  transition: all 200ms ease;
 }
 
 .update-user {
-  min-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
 
 .custom-file-upload:hover, .profile-container button:hover {
   cursor: pointer;
+  border: 1px solid rgb(96, 96, 96);
+  color: rgb(96, 96, 96);
+  transition: all 200ms ease;
 }
 
 .profile-container h2 {
@@ -57,7 +62,7 @@
 
 
 @media only screen and (min-width: 762px) {
-  .custom-file-upload, .profile-container button {
+  /*.custom-file-upload, .profile-container button {
     width: 200px;
     display: inline-block;
     text-align: center;
@@ -68,5 +73,11 @@
     padding: 5px 0;
     background: white;
     font-size: 1rem;
+  }*/
+
+  .custom-file-upload, .profile-container button {
+    display: inline-block;
+    width: 200px;
+    margin: 0;
   }
 }

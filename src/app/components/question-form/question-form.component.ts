@@ -19,10 +19,12 @@ export class QuestionFormComponent implements OnInit {
 
   visibleForm: boolean = false;
 
+  // Show / hide add new question form
   toggleQuestionForm() {
     this.visibleForm=!this.visibleForm;
   }
 
+  // New question set-up
   newQuestion = {
     content: '',
     city: '',
@@ -31,6 +33,7 @@ export class QuestionFormComponent implements OnInit {
     answers: []
   };
 
+  // Submit a new question and subscribe to the question being retrieved
   submitForm(myForm) {
     this.newQuestion.content = myForm.value.content;
     this.questionService.postQuestion(myForm.value.content, myForm.value.city).subscribe((question) => {
@@ -39,11 +42,12 @@ export class QuestionFormComponent implements OnInit {
     this.visibleForm = false;
   }
 
+  // Callback from city search bar
   autoCompleteCallback1(selectedData:any) {
     this.newQuestion.city = selectedData.name
   }
 
-
+  // Auto set city if asking a question on the city page
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.city = params['id']
@@ -53,6 +57,7 @@ export class QuestionFormComponent implements OnInit {
     });
   }
 
+  // Settings for city search bar
   public userSettings2: any = {
     geoTypes: ['(cities)'],
     inputPlaceholderText: 'Enter a city...',

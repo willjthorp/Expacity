@@ -26,13 +26,13 @@ import { PagesSearchcitiesComponent } from './pages/pages-searchcities/pages-sea
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
-import { AuthUserComponent } from './components/auth-user/auth-user.component';
 import { ClimateGraphComponent } from './components/climate-graph/climate-graph.component';
 import { HeaderComponent } from './components/header/header.component';
 
 import { CityService } from './services/city.service';
 import { AuthService } from './services/auth.service';
 import { QuestionService } from './services/question.service';
+import { CityTrailService } from './services/city-trail.service';
 
 import { RouterModule, Routes } from '@angular/router';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
@@ -69,7 +69,6 @@ const routes: Routes = [
     AuthLoginComponent,
     AuthLogoutComponent,
     AuthSignupComponent,
-    AuthUserComponent,
     ClimateGraphComponent,
     QuestionFormComponent,
     QuestionListComponent,
@@ -92,7 +91,7 @@ const routes: Routes = [
     ToolTipModule,
     FileUploadModule
   ],
-  providers: [CityService, AuthService, QuestionService],
+  providers: [CityService, AuthService, QuestionService, CityTrailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

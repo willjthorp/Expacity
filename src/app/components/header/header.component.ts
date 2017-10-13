@@ -20,34 +20,37 @@ export class HeaderComponent implements OnInit {
   subscriptions = [];
   toggle: boolean = false;
 
-  toggleMenu() {
-    this.toggle=!this.toggle;
-  }
-
   constructor(private router: Router, private auth: AuthService) { }
 
+  // Get the user on init and subscribe to changes
   ngOnInit() {
     this.user = this.auth.getUser();
-
     let subscription = this.auth.userChange$.subscribe((user) => {
       this.user = user
     });
-
     this.subscriptions.push(subscription);
   }
 
+  // Logout the user
   logout() {
     this.auth.logout().subscribe(() => {
     });
     this.router.navigate(['/home'])
   }
 
+  // Toggle the mobile view menu
+  toggleMenu() {
+    this.toggle=!this.toggle;
+  }
+
+  // Callback from city search bar
   autoCompleteCallback1(selectedData:any) {
     this.currentCity = selectedData.name
     this.notify.emit(this.currentCity);
     this.router.navigate(['/cities', this.currentCity]);
   }
 
+  // Settings for city search bar
   public userSettings2: any = {
     geoTypes: ['(cities)'],
     inputPlaceholderText: 'Search for a city...',

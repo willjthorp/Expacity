@@ -24,7 +24,9 @@ export class CompareGraphComponent implements OnInit {
   selectedCategory = 'Health Care';
   indexName = 'health_care_index';
 
-  // Callback from city selector
+  constructor(private route: ActivatedRoute, private cities: CityService) { }
+
+  // Callback from city selector - run photo reference function
   autoCompleteCallback1(selectedData:any) {
     this.showGraph = false;
     if (selectedData.name && this.selectedCities && this.selectedCities.length < 6) {
@@ -32,34 +34,7 @@ export class CompareGraphComponent implements OnInit {
     }
   }
 
-  getIndices(selectedCity) {
-    this.cities.getIndices(selectedCity)
-      .subscribe((indices) => {
-        this.cityIndices.push(indices);
-        this.addCity();
-      });
-  }
-
-  selectCategory(name, indexName) {
-    this.indexName = indexName;
-    this.barChartLabels = [name + ''];
-    this.setData(indexName)
-  }
-
-  addCity() {
-    this.barChartData.push({data: []});
-    this.barChartData[this.barChartData.length - 1].label = this.selectedCities[this.selectedCities.length - 1].name
-    this.barChartData[this.barChartData.length - 1].backgroundColor = this.colors[this.selectedCities.length - 1];
-    this.setData(this.indexName)
-    this.showGraph = true;
-  }
-
-  setData(indexName) {
-    this.barChartData.forEach((data, index) => {
-      this.barChartData[index].data = [this.cityIndices[index][this.indexName]];
-    });
-  }
-
+  // Google Api call to get photo reference for city and run photo call function
   getPhotoReference(city) {
     this.cities.getPhotoReference(city)
       .subscribe((info) => {
@@ -68,6 +43,7 @@ export class CompareGraphComponent implements OnInit {
       });
   }
 
+  // Use obtained photo reference to retrieve photo for city then call api to get index data
   getPhoto(city) {
     this.cities.getPhoto(this.photoReference)
       .subscribe((photo) => {
@@ -76,25 +52,51 @@ export class CompareGraphComponent implements OnInit {
       });
   }
 
-  constructor(private route: ActivatedRoute, private cities: CityService) { }
+  // Call Numbeo api to retreive indices for city
+  getIndices(selectedCity) {
+    this.cities.getIndices(selectedCity)
+      .subscribe((indices) => {
+        this.cityIndices.push(indices);
+        this.addCity();
+      });
+  }
+
+  // Push the data to Chart JS and show the chart again to apply the changes
+  addCity() {
+    this.barChartData.push({data: []});
+    this.barChartData[this.barChartData.length - 1].label = this.selectedCities[this.selectedCities.length - 1].name
+    this.barChartData[this.barChartData.length - 1].backgroundColor = this.colors[this.selectedCities.length - 1];
+    this.setData(this.indexName)
+    this.showGraph = true;
+  }
+
+  // Select category to compare by and call the set data function with this category
+  selectCategory(name, indexName) {
+    this.indexName = indexName;
+    this.barChartLabels = [name + ''];
+    this.setData(indexName);
+  }
+
+  // Use selected category to set all data
+  setData(indexName) {
+    this.barChartData.forEach((data, index) => {
+      this.barChartData[index].data = [this.cityIndices[index][this.indexName]];
+    });
+  }
+
 
   ngOnInit() {
   }
 
   // Search box settings -------------------------------------------------------------------------------------------
-
-
-    public userSettings2: any = {
-      geoTypes: ['(cities)'],
-      inputPlaceholderText: 'Search for a city to compare...',
-      showSearchButton: false,
-      showCurrentLocation: false,
-    };
-
+  public userSettings2: any = {
+    geoTypes: ['(cities)'],
+    inputPlaceholderText: 'Search for a city to compare...',
+    showSearchButton: false,
+    showCurrentLocation: false,
+  };
 
   // Graph settings -------------------------------------------------------------------------------------------
-
-
   public barChartOptions:any = {
     scaleShowVerticalLines: true,
     responsive: true,
@@ -114,13 +116,6 @@ export class CompareGraphComponent implements OnInit {
 
   public barChartData = [];
 
-  // events
-  public chartClicked(e:any):void {
-  }
-
-  public chartHovered(e:any):void {
-  }
-
   colors = [
         'rgba(161, 255, 206, 0.7)',
         'rgba(250, 255, 209, 0.7)',
@@ -131,6 +126,8 @@ export class CompareGraphComponent implements OnInit {
   ];
 
 
+
+  // Available categories
   categories = [
     {
       name: 'Health Care',

@@ -117,8 +117,9 @@
 }
 
 .answer-text {
-  width: 350px;
-  margin: 0 auto;
+  max-width: 250px;
+  text-align: left;
+  margin: 0;
 }
 
 .star-container-answer {
@@ -147,6 +148,13 @@
   text-align: center;
 }
 
+@media only screen and (min-width: 500px) {
+  .answer-text {
+    max-width: 400px;
+    text-align: left;
+  }
+}
+
 @media only screen and (min-width: 762px) {
   .question-container {
     padding: 10px 30px;
@@ -168,5 +176,11 @@
 
   .star-container-question {
     right: 30px;
+  }
+
+  .answer-text {
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
   }
 }

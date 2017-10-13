@@ -18,6 +18,7 @@ export class QuestionCardComponent implements OnInit {
   user: User | null;
   visibleAnswers = false;
   submitted = false;
+  voted = false;
   answerIndex: number
   picUrl = environment.apiUrl;
 
@@ -27,20 +28,21 @@ export class QuestionCardComponent implements OnInit {
     content: ''
   }
 
+  // Show / hide answer list
   toggleAnswerList() {
     this.visibleAnswers = !this.visibleAnswers
   }
 
   ngOnInit() {
-    // xxx load the user (sync + async)
   }
 
+  // Submit a new answer
   submitAnswerForm(myForm) {
     this.submitted = true;
     if (myForm.invalid) {
       return;
     }
-    this.questionService.postAnswer(myForm.value.answer, this.question._id)
+    this.questionService.postAnswer(myForm.value.answer, this.question._id).subscribe();
     this.question.answers.push({
       content: myForm.value.answer,
       date: new Date(),
@@ -48,11 +50,14 @@ export class QuestionCardComponent implements OnInit {
     })
   }
 
+  // Add a star to the question
   handleAddQuestionStar(id) {
     this.questionService.addQuestionStar(id).subscribe()
+    this.voted = true;
     this.question.stars++;
   }
 
+  // Add a star to the answer
   handleAddAnswerStar(questionId, answerId) {
     this.questionService.addAnswerStar(questionId, answerId).subscribe();
     this.question.answers.find(c => c._id === answerId).stars++;

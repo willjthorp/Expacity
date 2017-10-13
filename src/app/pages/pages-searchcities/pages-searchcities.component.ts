@@ -16,17 +16,20 @@ export class PagesSearchcitiesComponent implements OnInit {
 
   currentCity: string;
 
+  // Settings for city search bar
   public userSettings2: any = {
     geoTypes: ['(cities)'],
     inputPlaceholderText: 'Search for a city to view stats...',
     showCurrentLocation: false,
   };
 
+  // Callback for city search bar
   autoCompleteCallback1(selectedData:any) {
     this.currentCity = selectedData.name;
     this.router.navigate(['/cities', this.currentCity]);
   }
 
+  // Cities to diplay in 'Popular cities'
   cityItems = [
     {
       name: 'Barcelona',

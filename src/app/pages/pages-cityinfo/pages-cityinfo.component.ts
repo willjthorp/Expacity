@@ -2,8 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { CityService } from '../../services/city.service'
 
-import { QuestionService } from '../../services/question.service'
+import { CityTrailService } from '../../services/city-trail.service'
 
+import { QuestionService } from '../../services/question.service'
+import { AuthService } from '../../services/auth.service'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -30,6 +32,119 @@ export class PagesCityinfoComponent implements OnInit {
   prices: any;
   showInput = false;
 
+  constructor(private cities: CityService,
+              private route: ActivatedRoute,
+              private questionService: QuestionService,
+              private auth: AuthService,
+              private cityTrailService: CityTrailService) { }
+
+  // Listen to change in route and set data for new city
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.city = params['id']
+      this.cityTrailService.pushCity(this.city)
+      this.getIndices();
+      this.getPhotoReference();
+      this.getPrices();
+      this.getClimate();
+      this.questionService.getCityQuestions(this.city)
+        .subscribe((questions) => {
+          this.questionList = questions
+          this.questionList.sort((a, b) => {
+            a = new Date(a.date);
+            b = new Date(b.date);
+            return b - a
+          });
+          if (this.questionList.length > 4) {
+            this.questionList.length = 4
+          }
+        });
+    });
+  }
+
+  // If data exists, set data for selected city
+  getIndices() {
+    this.cities.getIndices(this.city)
+      .subscribe((indices) => {
+        this.cityIndices = indices;
+        if (indices.quality_of_life_index) {
+          this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
+        }
+        if (indices.cpi_index) {
+          this.costOfLivingIndex = indices.cpi_index.toFixed(2);
+        }
+        if (indices.property_price_to_income_ratio) {
+          this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
+        }
+        this.country = indices.name.split(',')[1].trim()
+      });
+  }
+
+  // Use google api to retreive photo reference
+  getPhotoReference() {
+    this.cities.getPhotoReference(this.city)
+      .subscribe((info) => {
+        this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
+        this.getPhoto()
+      });
+  }
+
+  // Use photo reference to call google photo api to retrieve photo
+  getPhoto() {
+    this.cities.getPhoto(this.photoReference)
+      .subscribe((photo) => {
+        this.photoURL = photo.location
+      });
+  }
+
+  // Get price info for city and filter by relevant categories
+  getPrices() {
+    this.cities.getPrices(this.city)
+      .subscribe((priceinfo) => {
+        this.prices = priceinfo.prices
+        for (let i=0; i < this.prices.length; i++) {
+          for (let j=0; j < this.priceItems.length; j++) {
+            if (this.prices[i].item_id == this.priceItems[j].id) {
+              this.priceItems[j].price = this.prices[i].average_price.toFixed(2)
+            }
+          }
+        }
+        this.currency = priceinfo.currency;
+      });
+  }
+
+  // Get climate info for city to pass into climate graph
+  getClimate() {
+    this.cities.getClimate(this.city)
+      .subscribe((climate) => {
+        this.climateInfo = climate.months;
+      });
+  }
+
+  // // Retrieve city specific questions
+  // getCityQuestions() {
+  //   this.questionService.getCityQuestions(this.city)
+  //     .subscribe((questions) => {
+  //       this.questionList = questions;
+  //       this.questionList.sort((a, b) => {
+  //         a = new Date(a.date);
+  //         b = new Date(b.date);
+  //         return a - b
+  //       });
+  //     });
+  // }
+
+  // Retrieve new question from form and add it to question list
+  receiveNewQuestion(question) {
+    question.justAdded = true;
+    question.creator = this.auth.getUser();
+    this.questionList.unshift(question);
+
+    setTimeout(() => question.justAdded = false, 500);
+  }
+
+
+  // List of price items to diplay with icons
   priceItems = [
     {
       id: 1,
@@ -128,91 +243,5 @@ export class PagesCityinfoComponent implements OnInit {
       price: 0
     },
   ]
-
-  constructor(private cities: CityService, private route: ActivatedRoute, private questionService: QuestionService) { }
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.city = params['id']
-      this.getIndices();
-      this.getPhotoReference();
-      this.getPrices();
-      this.getClimate();
-      this.questionService.getCityQuestions(this.city)
-        .subscribe((questions) => {
-          this.questionList = questions
-          if (this.questionList.length > 4) {
-            this.questionList.length = 4
-          }
-        });
-    });
-  }
-
-  getIndices() {
-    this.cities.getIndices(this.city)
-      .subscribe((indices) => {
-        this.cityIndices = indices;
-        if (indices.quality_of_life_index) {
-          this.qualityOfLifeIndex = indices.quality_of_life_index.toFixed(2);
-        }
-        if (indices.cpi_index) {
-          this.costOfLivingIndex = indices.cpi_index.toFixed(2);
-        }
-        if (indices.property_price_to_income_ratio) {
-          this.propPriceIncomeRatio = indices.property_price_to_income_ratio.toFixed(2);
-        }
-        this.country = indices.name.split(',')[1].trim()
-      });
-  }
-
-  getPhotoReference() {
-    this.cities.getPhotoReference(this.city)
-      .subscribe((info) => {
-        this.photoReference = info.results[0] && info.results[0].photos[0].photo_reference;
-        this.getPhoto()
-      });
-  }
-
-  getPhoto() {
-    this.cities.getPhoto(this.photoReference)
-      .subscribe((photo) => {
-        this.photoURL = photo.location
-      });
-  }
-
-  getPrices() {
-    this.cities.getPrices(this.city)
-      .subscribe((priceinfo) => {
-        this.prices = priceinfo.prices
-        for (let i=0; i < this.prices.length; i++) {
-          for (let j=0; j < this.priceItems.length; j++) {
-            if (this.prices[i].item_id == this.priceItems[j].id) {
-              this.priceItems[j].price = this.prices[i].average_price.toFixed(2)
-            }
-          }
-        }
-        this.currency = priceinfo.currency;
-      });
-  }
-
-  getClimate() {
-    this.cities.getClimate(this.city)
-      .subscribe((climate) => {
-        this.climateInfo = climate.months;
-      });
-  }
-
-  getCityQuestions() {
-    this.questionService.getCityQuestions(this.city)
-      .subscribe((questions) => {
-        this.questionList = questions;
-      });
-  }
-
-  receiveNewQuestion(question) {
-    question.justAdded = true;
-    this.questionList.unshift(question);
-    setTimeout(() => question.justAdded = false, 500);
-  }
 
 }

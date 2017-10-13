@@ -15,19 +15,23 @@ export class ClimateGraphComponent implements OnInit {
   avLowTemp = [];
   maxLowTemp = [];
 
+  constructor(private route: ActivatedRoute) { }
+
+
+  // Extract relevant climate data from api data function
   getClimateData(data, variable) {
     for (var key in this.climateInfo) {
       var obj = this.climateInfo[key]
-        for (var item in obj) {
-          if (item === data) {
-            variable.push(obj[item])
-          }
+      for (var item in obj) {
+        if (item === data) {
+          variable.push(obj[item])
         }
+      }
     }
   }
 
-  constructor(private route: ActivatedRoute) { }
 
+  // Listen to route changes and use function to set relevant data
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getClimateData('temp_high_avg', this.avHighTemp);
@@ -39,6 +43,8 @@ export class ClimateGraphComponent implements OnInit {
     });
   }
 
+
+  // Chart JS settings
   public barChartOptions:any = {
     scaleShowVerticalLines: true,
     responsive: true,
@@ -49,12 +55,6 @@ export class ClimateGraphComponent implements OnInit {
 
   public barChartData:Object[];
 
-  // events
-  public chartClicked(e:any):void {
-  }
-
-  public chartHovered(e:any):void {
-  }
 
   public colors = [
         'rgba(161, 255, 206, 0.8)',

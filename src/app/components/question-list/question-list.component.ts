@@ -21,6 +21,7 @@ export class QuestionListComponent implements OnInit {
     private questionService: QuestionService
   ) { }
 
+  // Get all questions if not on profile page
   ngOnInit() {
     if (!this.userQuestions) {
       this.getQuestions()
@@ -29,6 +30,7 @@ export class QuestionListComponent implements OnInit {
     }
   }
 
+  // Receive added question and push it to start of question array
   receiveNewQuestion(question) {
     question.justAdded = true;
     question.creator = this.auth.getUser();
@@ -36,6 +38,7 @@ export class QuestionListComponent implements OnInit {
     setTimeout(() => question.justAdded = false, 500);
   }
 
+  // Function to call back end and retrieve all questions
   getQuestions() {
     this.questionService.getQuestions()
       .subscribe((questions) => {
@@ -48,15 +51,22 @@ export class QuestionListComponent implements OnInit {
       });
   }
 
+  // Function to post answer to back end
   handleAddAnswer(content, questionId) {
     this.questionService.postAnswer(content, questionId).subscribe();
   }
 
+  // Callback to filter questions  city search
   autoCompleteCallback1(selectedData:any) {
     this.currentCity = selectedData.name
     this.questionService.getCityQuestions(selectedData.name)
       .subscribe((questions) => {
         this.questionList = questions;
+        this.questionList.forEach((question) => {
+          question.answers.sort((a,b) => {
+            return b.stars - a.stars
+          });
+        });
         this.sort(this.selectedCategory);
       });
   }
