@@ -1,27 +1,44 @@
-# Client
+## Expacity
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
+Jamstar is a Angular / Express responsive web application used to get information about, compare and ask questions about any city in the world.
 
-## Development server
+View the app here: https://expacity.herokuapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ ---
 
-## Code scaffolding
+### App features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ - View detailed city information on the city page such as cost of living, quality of life and property price indices as well as climate data and average prices for commodities
+ 
+ - Add up to 6 cities to compare data on a bar graph with a number of different categories to choose from.
+ 
+ - Ask and view questions about any city on the forum page.
+ 
+ - Star useful questions and answers and sort questions based on star rating and number of answers.
+ 
+ - Sign up to keep track of the questions you have asked to see if they are getting any answers.
+ 
+ ---
 
-## Build
+### Tehcnologies used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+  - Angular 2
 
-## Running unit tests
+  - Node JS
+  
+  - Express JS
+  
+  - Mongo DB
+  
+  - Mongoose
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  - Javascript 
+  
+  - HTML5
+  
+  - CSS3
+  
+  - Numbeo API
+  
+  - Google Places API
+ 
