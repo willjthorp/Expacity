@@ -1,6 +1,6 @@
 ## Expacity
 
-Jamstar is a Angular / Express responsive web application used to get information about, compare and ask questions about any city in the world.
+Expacity is a Angular / Express responsive web application used to get information about, compare and ask questions about any city in the world.
 
 View the app here: https://expacity.herokuapp.com/
 
